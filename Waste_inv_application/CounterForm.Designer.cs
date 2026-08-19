@@ -1,0 +1,509 @@
+﻿namespace Waste_inv_application
+{
+    partial class CounterForm
+    {
+        private System.ComponentModel.IContainer components = null;
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        private void InitializeComponent()
+        {
+            this.statusStrip = new System.Windows.Forms.StatusStrip();
+            this.lblStatus = new System.Windows.Forms.ToolStripStatusLabel();
+            this.pnlHeader = new System.Windows.Forms.Panel();
+            this.btnLogout = new System.Windows.Forms.Button();
+            this.lblHeaderUser = new System.Windows.Forms.Label();
+            this.lblHeaderTitle = new System.Windows.Forms.Label();
+            this.lblDepartment = new System.Windows.Forms.Label();
+            this.txtDepartment = new System.Windows.Forms.TextBox();
+            this.lblDateReport = new System.Windows.Forms.Label();
+            this.dtpDateReport = new System.Windows.Forms.DateTimePicker();
+            this.lblTypeWaste = new System.Windows.Forms.Label();
+            this.lblQuantityWaste = new System.Windows.Forms.Label();
+            this.numQuantityWaste = new System.Windows.Forms.NumericUpDown();
+            this.lblWeightWaste = new System.Windows.Forms.Label();
+            this.numWeightWaste = new System.Windows.Forms.NumericUpDown();
+            this.lblAction = new System.Windows.Forms.Label();
+            this.cboAction = new System.Windows.Forms.ComboBox();
+            this.pnlActions = new System.Windows.Forms.Panel();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.grpResults = new System.Windows.Forms.GroupBox();
+            this.dgvResults = new System.Windows.Forms.DataGridView();
+            this.colIsCancel = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.colDepartment = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDateReport = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTypeWaste = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colQuantityWaste = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colWeightWaste = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAction = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblTotalWeightVal = new System.Windows.Forms.Label();
+            this.lblTotalWeightTitle = new System.Windows.Forms.Label();
+            this.lblTotalQtyVal = new System.Windows.Forms.Label();
+            this.lblTotalQtyTitle = new System.Windows.Forms.Label();
+            this.lblSelectedSamplesVal = new System.Windows.Forms.Label();
+            this.lblSelectedSamplesTitle = new System.Windows.Forms.Label();
+            this.cboTypeWaste = new System.Windows.Forms.ComboBox();
+            this.statusStrip.SuspendLayout();
+            this.pnlHeader.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numQuantityWaste)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numWeightWaste)).BeginInit();
+            this.pnlActions.SuspendLayout();
+            this.grpResults.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvResults)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // statusStrip
+            // 
+            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lblStatus});
+            this.statusStrip.Location = new System.Drawing.Point(0, 636);
+            this.statusStrip.Name = "statusStrip";
+            this.statusStrip.Size = new System.Drawing.Size(670, 22);
+            this.statusStrip.TabIndex = 10;
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(54, 17);
+            this.lblStatus.Text = "Sẵn sàng";
+            // 
+            // pnlHeader
+            // 
+            this.pnlHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(178)))), ((int)(((byte)(206)))));
+            this.pnlHeader.Controls.Add(this.btnLogout);
+            this.pnlHeader.Controls.Add(this.lblHeaderUser);
+            this.pnlHeader.Controls.Add(this.lblHeaderTitle);
+            this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlHeader.Location = new System.Drawing.Point(0, 0);
+            this.pnlHeader.Name = "pnlHeader";
+            this.pnlHeader.Size = new System.Drawing.Size(670, 65);
+            this.pnlHeader.TabIndex = 0;
+            // 
+            // btnLogout
+            // 
+            this.btnLogout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLogout.BackColor = System.Drawing.Color.White;
+            this.btnLogout.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btnLogout.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnLogout.Location = new System.Drawing.Point(582, 17);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(80, 30);
+            this.btnLogout.TabIndex = 2;
+            this.btnLogout.Text = "Logout";
+            this.btnLogout.UseVisualStyleBackColor = false;
+            // 
+            // lblHeaderUser
+            // 
+            this.lblHeaderUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblHeaderUser.AutoSize = true;
+            this.lblHeaderUser.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHeaderUser.ForeColor = System.Drawing.Color.Black;
+            this.lblHeaderUser.Location = new System.Drawing.Point(511, 21);
+            this.lblHeaderUser.Name = "lblHeaderUser";
+            this.lblHeaderUser.Size = new System.Drawing.Size(61, 21);
+            this.lblHeaderUser.TabIndex = 3;
+            this.lblHeaderUser.Text = "CM110";
+            // 
+            // lblHeaderTitle
+            // 
+            this.lblHeaderTitle.AutoSize = true;
+            this.lblHeaderTitle.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
+            this.lblHeaderTitle.ForeColor = System.Drawing.Color.White;
+            this.lblHeaderTitle.Location = new System.Drawing.Point(120, 18);
+            this.lblHeaderTitle.Name = "lblHeaderTitle";
+            this.lblHeaderTitle.Size = new System.Drawing.Size(311, 25);
+            this.lblHeaderTitle.TabIndex = 4;
+            this.lblHeaderTitle.Text = "🗑 HỆ THỐNG QUẢN LÝ RÁC THẢI";
+            // 
+            // lblDepartment
+            // 
+            this.lblDepartment.AutoSize = true;
+            this.lblDepartment.Location = new System.Drawing.Point(20, 85);
+            this.lblDepartment.Name = "lblDepartment";
+            this.lblDepartment.Size = new System.Drawing.Size(104, 15);
+            this.lblDepartment.TabIndex = 15;
+            this.lblDepartment.Text = "Phòng ban (Dept):";
+            // 
+            // txtDepartment
+            // 
+            this.txtDepartment.Location = new System.Drawing.Point(130, 82);
+            this.txtDepartment.MaxLength = 6;
+            this.txtDepartment.Name = "txtDepartment";
+            this.txtDepartment.ReadOnly = true;
+            this.txtDepartment.Size = new System.Drawing.Size(150, 23);
+            this.txtDepartment.TabIndex = 14;
+            // 
+            // lblDateReport
+            // 
+            this.lblDateReport.AutoSize = true;
+            this.lblDateReport.Location = new System.Drawing.Point(376, 85);
+            this.lblDateReport.Name = "lblDateReport";
+            this.lblDateReport.Size = new System.Drawing.Size(83, 15);
+            this.lblDateReport.TabIndex = 13;
+            this.lblDateReport.Text = "Ngày báo cáo:";
+            // 
+            // dtpDateReport
+            // 
+            this.dtpDateReport.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDateReport.Location = new System.Drawing.Point(476, 82);
+            this.dtpDateReport.Name = "dtpDateReport";
+            this.dtpDateReport.Size = new System.Drawing.Size(180, 23);
+            this.dtpDateReport.TabIndex = 12;
+            // 
+            // lblTypeWaste
+            // 
+            this.lblTypeWaste.AutoSize = true;
+            this.lblTypeWaste.Location = new System.Drawing.Point(20, 120);
+            this.lblTypeWaste.Name = "lblTypeWaste";
+            this.lblTypeWaste.Size = new System.Drawing.Size(74, 15);
+            this.lblTypeWaste.TabIndex = 11;
+            this.lblTypeWaste.Text = "Loại rác thải:";
+            // 
+            // lblQuantityWaste
+            // 
+            this.lblQuantityWaste.AutoSize = true;
+            this.lblQuantityWaste.Location = new System.Drawing.Point(20, 155);
+            this.lblQuantityWaste.Name = "lblQuantityWaste";
+            this.lblQuantityWaste.Size = new System.Drawing.Size(57, 15);
+            this.lblQuantityWaste.TabIndex = 9;
+            this.lblQuantityWaste.Text = "Số lượng:";
+            // 
+            // numQuantityWaste
+            // 
+            this.numQuantityWaste.Location = new System.Drawing.Point(130, 153);
+            this.numQuantityWaste.Maximum = new decimal(new int[] {
+            99999999,
+            0,
+            0,
+            0});
+            this.numQuantityWaste.Name = "numQuantityWaste";
+            this.numQuantityWaste.Size = new System.Drawing.Size(150, 23);
+            this.numQuantityWaste.TabIndex = 8;
+            // 
+            // lblWeightWaste
+            // 
+            this.lblWeightWaste.AutoSize = true;
+            this.lblWeightWaste.Location = new System.Drawing.Point(376, 155);
+            this.lblWeightWaste.Name = "lblWeightWaste";
+            this.lblWeightWaste.Size = new System.Drawing.Size(99, 15);
+            this.lblWeightWaste.TabIndex = 7;
+            this.lblWeightWaste.Text = "Trọng lượng (kg):";
+            // 
+            // numWeightWaste
+            // 
+            this.numWeightWaste.Location = new System.Drawing.Point(476, 153);
+            this.numWeightWaste.Maximum = new decimal(new int[] {
+            1410065407,
+            2,
+            0,
+            0});
+            this.numWeightWaste.Name = "numWeightWaste";
+            this.numWeightWaste.Size = new System.Drawing.Size(180, 23);
+            this.numWeightWaste.TabIndex = 6;
+            // 
+            // lblAction
+            // 
+            this.lblAction.AutoSize = true;
+            this.lblAction.Location = new System.Drawing.Point(376, 120);
+            this.lblAction.Name = "lblAction";
+            this.lblAction.Size = new System.Drawing.Size(70, 15);
+            this.lblAction.TabIndex = 5;
+            this.lblAction.Text = "Hành động:";
+            // 
+            // cboAction
+            // 
+            this.cboAction.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboAction.Items.AddRange(new object[] {
+            "1 - Nhập (In)",
+            "0 - Xuất (Out)"});
+            this.cboAction.Location = new System.Drawing.Point(476, 117);
+            this.cboAction.Name = "cboAction";
+            this.cboAction.Size = new System.Drawing.Size(180, 23);
+            this.cboAction.TabIndex = 4;
+            this.cboAction.SelectedIndex = 0;
+            // 
+            // pnlActions
+            // 
+            this.pnlActions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
+            this.pnlActions.Controls.Add(this.btnClear);
+            this.pnlActions.Controls.Add(this.btnSave);
+            this.pnlActions.Location = new System.Drawing.Point(20, 190);
+            this.pnlActions.Name = "pnlActions";
+            this.pnlActions.Size = new System.Drawing.Size(636, 40);
+            this.pnlActions.TabIndex = 2;
+            // 
+            // btnClear
+            // 
+            this.btnClear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(103)))), ((int)(((byte)(103)))));
+            this.btnClear.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClear.FlatAppearance.BorderSize = 0;
+            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClear.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnClear.ForeColor = System.Drawing.Color.White;
+            this.btnClear.Location = new System.Drawing.Point(170, 5);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(90, 30);
+            this.btnClear.TabIndex = 2;
+            this.btnClear.Text = "❌ Xóa form";
+            this.btnClear.UseVisualStyleBackColor = false;
+            // 
+            // btnSave
+            // 
+            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(155)))), ((int)(((byte)(213)))));
+            this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSave.FlatAppearance.BorderSize = 0;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnSave.ForeColor = System.Drawing.Color.White;
+            this.btnSave.Location = new System.Drawing.Point(14, 5);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(90, 30);
+            this.btnSave.TabIndex = 1;
+            this.btnSave.Text = "💾 Lưu (Save)";
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // grpResults
+            // 
+            this.grpResults.Controls.Add(this.dgvResults);
+            this.grpResults.Controls.Add(this.lblTotalWeightVal);
+            this.grpResults.Controls.Add(this.lblTotalWeightTitle);
+            this.grpResults.Controls.Add(this.lblTotalQtyVal);
+            this.grpResults.Controls.Add(this.lblTotalQtyTitle);
+            this.grpResults.Controls.Add(this.lblSelectedSamplesVal);
+            this.grpResults.Controls.Add(this.lblSelectedSamplesTitle);
+            this.grpResults.Location = new System.Drawing.Point(20, 236);
+            this.grpResults.Name = "grpResults";
+            this.grpResults.Size = new System.Drawing.Size(636, 391);
+            this.grpResults.TabIndex = 1;
+            this.grpResults.TabStop = false;
+            this.grpResults.Text = "Danh sách báo cáo rác thải";
+            // 
+            // dgvResults
+            // 
+            this.dgvResults.AllowUserToAddRows = false;
+            this.dgvResults.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvResults.BackgroundColor = System.Drawing.Color.White;
+            this.dgvResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvResults.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colIsCancel,
+            this.colDepartment,
+            this.colDateReport,
+            this.colTypeWaste,
+            this.colQuantityWaste,
+            this.colWeightWaste,
+            this.colAction});
+            this.dgvResults.Location = new System.Drawing.Point(12, 22);
+            this.dgvResults.Name = "dgvResults";
+            this.dgvResults.RowHeadersVisible = false;
+            this.dgvResults.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvResults.Size = new System.Drawing.Size(624, 279);
+            this.dgvResults.TabIndex = 8;
+            this.dgvResults.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvResults_CellContentClick);
+            // 
+            // colIsCancel
+            // 
+            this.colIsCancel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colIsCancel.HeaderText = "";
+            this.colIsCancel.Name = "colIsCancel";
+            this.colIsCancel.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.colIsCancel.Width = 50;
+            // 
+            // colDepartment
+            // 
+            this.colDepartment.HeaderText = "Phòng ban";
+            this.colDepartment.Name = "colDepartment";
+            this.colDepartment.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // colDateReport
+            // 
+            this.colDateReport.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colDateReport.HeaderText = "Ngày BC";
+            this.colDateReport.Name = "colDateReport";
+            // 
+            // colTypeWaste
+            // 
+            this.colTypeWaste.HeaderText = "Loại rác";
+            this.colTypeWaste.Name = "colTypeWaste";
+            // 
+            // colQuantityWaste
+            // 
+            this.colQuantityWaste.HeaderText = "Số lượng (thùng)";
+            this.colQuantityWaste.Name = "colQuantityWaste";
+            // 
+            // colWeightWaste
+            // 
+            this.colWeightWaste.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colWeightWaste.HeaderText = "Trọng lượng (Kg)";
+            this.colWeightWaste.Name = "colWeightWaste";
+            // 
+            // colAction
+            // 
+            this.colAction.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colAction.HeaderText = "Hành động";
+            this.colAction.Name = "colAction";
+            // 
+            // lblTotalWeightVal
+            // 
+            this.lblTotalWeightVal.AutoSize = true;
+            this.lblTotalWeightVal.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.lblTotalWeightVal.Location = new System.Drawing.Point(548, 347);
+            this.lblTotalWeightVal.Name = "lblTotalWeightVal";
+            this.lblTotalWeightVal.Size = new System.Drawing.Size(33, 19);
+            this.lblTotalWeightVal.TabIndex = 2;
+            this.lblTotalWeightVal.Text = "100";
+            // 
+            // lblTotalWeightTitle
+            // 
+            this.lblTotalWeightTitle.AutoSize = true;
+            this.lblTotalWeightTitle.Location = new System.Drawing.Point(377, 347);
+            this.lblTotalWeightTitle.Name = "lblTotalWeightTitle";
+            this.lblTotalWeightTitle.Size = new System.Drawing.Size(128, 15);
+            this.lblTotalWeightTitle.TabIndex = 3;
+            this.lblTotalWeightTitle.Text = "Tổng trọng lượng (kg):";
+            // 
+            // lblTotalQtyVal
+            // 
+            this.lblTotalQtyVal.AutoSize = true;
+            this.lblTotalQtyVal.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.lblTotalQtyVal.Location = new System.Drawing.Point(548, 324);
+            this.lblTotalQtyVal.Name = "lblTotalQtyVal";
+            this.lblTotalQtyVal.Size = new System.Drawing.Size(17, 19);
+            this.lblTotalQtyVal.TabIndex = 4;
+            this.lblTotalQtyVal.Text = "7";
+            // 
+            // lblTotalQtyTitle
+            // 
+            this.lblTotalQtyTitle.AutoSize = true;
+            this.lblTotalQtyTitle.Location = new System.Drawing.Point(377, 324);
+            this.lblTotalQtyTitle.Name = "lblTotalQtyTitle";
+            this.lblTotalQtyTitle.Size = new System.Drawing.Size(130, 15);
+            this.lblTotalQtyTitle.TabIndex = 5;
+            this.lblTotalQtyTitle.Text = "Tổng số lượng (thùng):";
+            // 
+            // lblSelectedSamplesVal
+            // 
+            this.lblSelectedSamplesVal.AutoSize = true;
+            this.lblSelectedSamplesVal.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.lblSelectedSamplesVal.Location = new System.Drawing.Point(126, 318);
+            this.lblSelectedSamplesVal.Name = "lblSelectedSamplesVal";
+            this.lblSelectedSamplesVal.Size = new System.Drawing.Size(25, 19);
+            this.lblSelectedSamplesVal.TabIndex = 6;
+            this.lblSelectedSamplesVal.Text = "13";
+            // 
+            // lblSelectedSamplesTitle
+            // 
+            this.lblSelectedSamplesTitle.AutoSize = true;
+            this.lblSelectedSamplesTitle.Location = new System.Drawing.Point(15, 320);
+            this.lblSelectedSamplesTitle.Name = "lblSelectedSamplesTitle";
+            this.lblSelectedSamplesTitle.Size = new System.Drawing.Size(80, 15);
+            this.lblSelectedSamplesTitle.TabIndex = 7;
+            this.lblSelectedSamplesTitle.Text = "Tông số dòng";
+            // 
+            // cboTypeWaste
+            // 
+            this.cboTypeWaste.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboTypeWaste.Items.AddRange(new object[] {
+            "Rác thải",
+            "Nước thải"});
+            this.cboTypeWaste.Location = new System.Drawing.Point(130, 117);
+            this.cboTypeWaste.Name = "cboTypeWaste";
+            this.cboTypeWaste.Size = new System.Drawing.Size(152, 23);
+            this.cboTypeWaste.TabIndex = 16;
+            this.cboTypeWaste.SelectedIndex = 0;
+            // 
+            // CounterForm
+            // 
+            this.ClientSize = new System.Drawing.Size(670, 658);
+            this.Controls.Add(this.statusStrip);
+            this.Controls.Add(this.cboTypeWaste);
+            this.Controls.Add(this.grpResults);
+            this.Controls.Add(this.pnlActions);
+            this.Controls.Add(this.cboAction);
+            this.Controls.Add(this.lblAction);
+            this.Controls.Add(this.numWeightWaste);
+            this.Controls.Add(this.lblWeightWaste);
+            this.Controls.Add(this.numQuantityWaste);
+            this.Controls.Add(this.lblQuantityWaste);
+            this.Controls.Add(this.lblTypeWaste);
+            this.Controls.Add(this.dtpDateReport);
+            this.Controls.Add(this.lblDateReport);
+            this.Controls.Add(this.txtDepartment);
+            this.Controls.Add(this.lblDepartment);
+            this.Controls.Add(this.pnlHeader);
+            this.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Name = "CounterForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Trang Chủ - Quản Lý Rác Thải";
+            this.Load += new System.EventHandler(this.CounterForm_Load);
+            this.statusStrip.ResumeLayout(false);
+            this.statusStrip.PerformLayout();
+            this.pnlHeader.ResumeLayout(false);
+            this.pnlHeader.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numQuantityWaste)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numWeightWaste)).EndInit();
+            this.pnlActions.ResumeLayout(false);
+            this.grpResults.ResumeLayout(false);
+            this.grpResults.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvResults)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Panel pnlHeader;
+        private System.Windows.Forms.Label lblHeaderTitle;
+        private System.Windows.Forms.Label lblHeaderUser;
+        private System.Windows.Forms.Button btnLogout;
+
+        private System.Windows.Forms.Label lblDepartment;
+        private System.Windows.Forms.TextBox txtDepartment;
+        private System.Windows.Forms.Label lblDateReport;
+        private System.Windows.Forms.DateTimePicker dtpDateReport;
+        private System.Windows.Forms.Label lblTypeWaste;
+        private System.Windows.Forms.Label lblQuantityWaste;
+        private System.Windows.Forms.NumericUpDown numQuantityWaste;
+        private System.Windows.Forms.Label lblWeightWaste;
+        private System.Windows.Forms.NumericUpDown numWeightWaste;
+        private System.Windows.Forms.Label lblAction;
+        private System.Windows.Forms.ComboBox cboAction;
+
+        private System.Windows.Forms.Panel pnlActions;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.GroupBox grpResults;
+        private System.Windows.Forms.DataGridView dgvResults;
+
+        // Bổ sung lại các control thống kê
+        private System.Windows.Forms.Label lblSelectedSamplesTitle;
+        private System.Windows.Forms.Label lblSelectedSamplesVal;
+        private System.Windows.Forms.Label lblTotalQtyTitle;
+        private System.Windows.Forms.Label lblTotalQtyVal;
+        private System.Windows.Forms.Label lblTotalWeightTitle;
+        private System.Windows.Forms.Label lblTotalWeightVal;
+        private System.Windows.Forms.ComboBox cboTypeWaste;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn colIsCancel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDepartment;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDateReport;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTypeWaste;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colQuantityWaste;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colWeightWaste;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colAction;
+        private System.Windows.Forms.StatusStrip statusStrip;
+        private System.Windows.Forms.ToolStripStatusLabel lblStatus;
+    }
+}
