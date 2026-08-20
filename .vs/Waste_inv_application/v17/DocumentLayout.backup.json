@@ -3,15 +3,19 @@
   "WorkspaceRootPath": "C:\\Users\\vit002\\Desktop\\Waste_inv_application\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5E5A9786-4D87-4AAA-AF76-E7FA7C81BDB5}|Waste_inv_application\\Waste_inv_application.csproj|c:\\users\\vit002\\desktop\\waste_inv_application\\waste_inv_application\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E5A9786-4D87-4AAA-AF76-E7FA7C81BDB5}|Waste_inv_application\\Waste_inv_application.csproj|solutionrelative:waste_inv_application\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5E5A9786-4D87-4AAA-AF76-E7FA7C81BDB5}|Waste_inv_application\\Waste_inv_application.csproj|c:\\users\\vit002\\desktop\\waste_inv_application\\waste_inv_application\\counterform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5E5A9786-4D87-4AAA-AF76-E7FA7C81BDB5}|Waste_inv_application\\Waste_inv_application.csproj|solutionrelative:waste_inv_application\\counterform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5E5A9786-4D87-4AAA-AF76-E7FA7C81BDB5}|Waste_inv_application\\Waste_inv_application.csproj|c:\\users\\vit002\\desktop\\waste_inv_application\\waste_inv_application\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E5A9786-4D87-4AAA-AF76-E7FA7C81BDB5}|Waste_inv_application\\Waste_inv_application.csproj|solutionrelative:waste_inv_application\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5E5A9786-4D87-4AAA-AF76-E7FA7C81BDB5}|Waste_inv_application\\Waste_inv_application.csproj|c:\\users\\vit002\\desktop\\waste_inv_application\\waste_inv_application\\counterform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E5A9786-4D87-4AAA-AF76-E7FA7C81BDB5}|Waste_inv_application\\Waste_inv_application.csproj|solutionrelative:waste_inv_application\\counterform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5E5A9786-4D87-4AAA-AF76-E7FA7C81BDB5}|Waste_inv_application\\Waste_inv_application.csproj|c:\\users\\vit002\\desktop\\waste_inv_application\\waste_inv_application\\counterform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5E5A9786-4D87-4AAA-AF76-E7FA7C81BDB5}|Waste_inv_application\\Waste_inv_application.csproj|c:\\users\\vit002\\desktop\\waste_inv_application\\waste_inv_application\\helpers\\languagemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E5A9786-4D87-4AAA-AF76-E7FA7C81BDB5}|Waste_inv_application\\Waste_inv_application.csproj|solutionrelative:waste_inv_application\\helpers\\languagemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E5A9786-4D87-4AAA-AF76-E7FA7C81BDB5}|Waste_inv_application\\Waste_inv_application.csproj|C:\\Users\\vit002\\Desktop\\Waste_inv_application\\waste_inv_application\\counterform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5E5A9786-4D87-4AAA-AF76-E7FA7C81BDB5}|Waste_inv_application\\Waste_inv_application.csproj|solutionrelative:waste_inv_application\\counterform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -22,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,39 +34,51 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Form1.cs",
-              "DocumentMoniker": "C:\\Users\\vit002\\Desktop\\Waste_inv_application\\Waste_inv_application\\Form1.cs",
-              "RelativeDocumentMoniker": "Waste_inv_application\\Form1.cs",
-              "ToolTip": "C:\\Users\\vit002\\Desktop\\Waste_inv_application\\Waste_inv_application\\Form1.cs",
-              "RelativeToolTip": "Waste_inv_application\\Form1.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAA9wDMAAAAUAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "CounterForm.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\vit002\\Desktop\\Waste_inv_application\\Waste_inv_application\\CounterForm.Designer.cs",
+              "RelativeDocumentMoniker": "Waste_inv_application\\CounterForm.Designer.cs",
+              "ToolTip": "C:\\Users\\vit002\\Desktop\\Waste_inv_application\\Waste_inv_application\\CounterForm.Designer.cs*",
+              "RelativeToolTip": "Waste_inv_application\\CounterForm.Designer.cs*",
+              "ViewState": "AgIAAFYAAAAAAAAAAAApwG0AAAB0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-20T01:25:38.448Z",
+              "WhenOpened": "2026-08-20T03:31:31.678Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\vit002\\Desktop\\Waste_inv_application\\Waste_inv_application\\Program.cs",
-              "RelativeDocumentMoniker": "Waste_inv_application\\Program.cs",
-              "ToolTip": "C:\\Users\\vit002\\Desktop\\Waste_inv_application\\Waste_inv_application\\Program.cs",
-              "RelativeToolTip": "Waste_inv_application\\Program.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAAwCoAAAABAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "CounterForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\vit002\\Desktop\\Waste_inv_application\\Waste_inv_application\\CounterForm.cs",
+              "RelativeDocumentMoniker": "Waste_inv_application\\CounterForm.cs",
+              "ToolTip": "C:\\Users\\vit002\\Desktop\\Waste_inv_application\\Waste_inv_application\\CounterForm.cs [Design]*",
+              "RelativeToolTip": "Waste_inv_application\\CounterForm.cs [Design]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-20T01:12:06.695Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-20T03:31:28.75Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "LanguageManager.cs",
+              "DocumentMoniker": "C:\\Users\\vit002\\Desktop\\Waste_inv_application\\Waste_inv_application\\Helpers\\LanguageManager.cs",
+              "RelativeDocumentMoniker": "Waste_inv_application\\Helpers\\LanguageManager.cs",
+              "ToolTip": "C:\\Users\\vit002\\Desktop\\Waste_inv_application\\Waste_inv_application\\Helpers\\LanguageManager.cs",
+              "RelativeToolTip": "Waste_inv_application\\Helpers\\LanguageManager.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAQwC8AAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-20T02:25:22.56Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "CounterForm.cs",
               "DocumentMoniker": "C:\\Users\\vit002\\Desktop\\Waste_inv_application\\Waste_inv_application\\CounterForm.cs",
               "RelativeDocumentMoniker": "Waste_inv_application\\CounterForm.cs",
-              "ToolTip": "C:\\Users\\vit002\\Desktop\\Waste_inv_application\\Waste_inv_application\\CounterForm.cs",
-              "RelativeToolTip": "Waste_inv_application\\CounterForm.cs",
-              "ViewState": "AgIAAFABAAAAAAAAAAAMwGcBAAAJAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\vit002\\Desktop\\Waste_inv_application\\Waste_inv_application\\CounterForm.cs*",
+              "RelativeToolTip": "Waste_inv_application\\CounterForm.cs*",
+              "ViewState": "AgIAADoBAAAAAAAAAAAmwFgBAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-08-19T06:10:20.819Z",
               "EditorCaption": ""

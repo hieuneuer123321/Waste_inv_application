@@ -24,7 +24,7 @@ namespace Waste_inv_application
         private void btn_login_Click(object sender, EventArgs e)
         {
 
-            // Báo cho Program.cs biết là đăng nhập thành công và đóng form login
+            //Báo cho Program.cs biết là đăng nhập thành công và đóng form login
             //this.DialogResult = DialogResult.OK;
             //this.Close();
             
@@ -134,6 +134,50 @@ namespace Waste_inv_application
             }
             */
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            Lbl_Header.Tag = "Lbl_Header";
+            // lblUsername.Tag = "Lbl_Username";
+            // lblPassword.Tag = "Lbl_Password";
+            // btnLogin.Tag = "Btn_Login";
+            // btnLogout.Tag = "Btn_Logout";
+            // this.Tag = "Form_Login";
+
+            // Gọi hàm dùng chung để setup trọn gói ComboBox và đồng bộ ngôn ngữ
+            LanguageManager.InitLanguageComboBox(cboLanguage, this);
+        }
+        private void cboLanguage_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Kiểm tra nếu chưa chọn gì thì thoát
+            if (cboLanguage.SelectedIndex < 0) return;
+
+            // Lưu lại lựa chọn (0: Tiếng Việt, 1: Tiếng Trung)
+            LanguageManager.CurrentLanguageIndex = cboLanguage.SelectedIndex;
+
+            // Gọi hàm quét và đổi ngôn ngữ toàn bộ Form1
+            LanguageManager.ApplyLanguage(this);
+        }
+        private void cboLanguage_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            //if (e.Index < 0) return;
+
+            //e.DrawBackground();
+
+            //// Lấy tên ngôn ngữ
+            //string text = cboLanguage.Items[e.Index].ToString();
+
+            //// Vẽ icon cờ (giả sử dùng Resource đã add vào project)
+            //// Tùy theo thứ tự bạn add vào cbo: 0 là VN, 1 là Trung
+            //System.Drawing.Image img = (e.Index == 0) ? Properties.Resources.vietnam: Properties.Resources.china;
+
+            //e.Graphics.DrawImage(img, e.Bounds.X + 2, e.Bounds.Y + 2, 20, 20);
+            //e.Graphics.DrawString(text, e.Font, new SolidBrush(e.ForeColor), e.Bounds.X + 25, e.Bounds.Y + 2);
+
+            //e.DrawFocusRectangle();
+        }
+
+      
     }
     
 }

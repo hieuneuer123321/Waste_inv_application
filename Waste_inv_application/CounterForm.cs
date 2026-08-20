@@ -18,11 +18,14 @@ namespace Waste_inv_application
 
         private void CounterForm_Load(object sender, EventArgs e)
         {
+            LanguageManager.InitLanguageComboBox(cboLanguage, this);
+            dgvResults.CellBeginEdit += dgvResults_CellBeginEdit;
             string user = !string.IsNullOrEmpty(UserSession.CurrentUsername) ? UserSession.CurrentUsername.Trim().ToUpper() : "CM100";
             lblHeaderUser.Text = txtDepartment.Text = user;
             lblStatus.ForeColor = System.Drawing.Color.DarkRed;
             this.cboAction.SelectedIndex = 0;
             this.cboTypeWaste.SelectedIndex = 0;
+
             // Không gọi Load dữ liệu nặng ở đây để tránh đơ form lúc mở
         }
 
@@ -43,6 +46,53 @@ namespace Waste_inv_application
             SaveDataToDatabase();
         }
 
+        // --- HÀM ÁNH XẠ TYPE_WASTE TỪ GIAO DIỆN XUỐNG DATABASE ---
+        // --- HÀM ÁNH XẠ TYPE_WASTE TỪ GIAO DIỆN XUỐNG DATABASE ---
+        private string GetTypeWasteCode()
+        {
+            string text = cboTypeWaste.Text.Trim();
+
+            // Kiểm tra dựa trên Index hoặc Text để đảm bảo chính xác
+            // Index 0: Rác thải / 固態
+            // Index 1: Nước thải / 液態
+            if (cboTypeWaste.SelectedIndex == 1 || text.Contains("液態") || text.Contains("Nước"))
+            {
+                return "WATER"; // Mã database cho nước thải
+            }
+
+            return "GENERAL"; // Mặc định là Rác thải / 固態
+        }
+
+        // --- HÀM ÁNH XẠ TYPE_WASTE TỪ DATABASE LÊN HIỂN THỊ TRÊN LƯỚI ---
+        private string GetTypeWasteDisplay(string dbCode)
+        {
+            if (string.IsNullOrEmpty(dbCode)) return "";
+            dbCode = dbCode.Trim().ToUpper();
+
+            bool isChinese = (LanguageManager.CurrentLanguageIndex == 1);
+
+            if (dbCode == "WATER")
+            {
+                return isChinese ? "液態" : "Nước thải";
+            }
+            else // Trường hợp GENERAL hoặc các mã khác
+            {
+                return isChinese ? "固態" : "Rác thải";
+            }
+        }
+        private string GetActionDisplay(int actionVal)
+        {
+            bool isChinese = (LanguageManager.CurrentLanguageIndex == 1);
+
+            if (actionVal == 1) // Nhập kho
+            {
+                return isChinese ? "入庫" : "Nhập kho";
+            }
+            else // Xuất kho
+            {
+                return isChinese ? "出庫" : "Xuất kho";
+            }
+        }
         // --- HÀM CẬP NHẬT TỔNG (Dùng chung cho cả Lưu và Hủy) ---
         private void UpdateUserTotals(OracleConnection conn, OracleTransaction trans, string dept)
         {
@@ -95,19 +145,18 @@ namespace Waste_inv_application
             string dept = txtDepartment.Text.Trim().ToUpper();
             long qtyCurrent = (long)numQuantityWaste.Value;
             long weightCurrent = (long)numWeightWaste.Value;
-            bool isOutput = cboAction.SelectedIndex == 1; // Giả sử Index 1 là Xuất kho
-
-            // 1. Kiểm tra tồn kho trước khi xuất
+            bool isOutput = cboAction.SelectedIndex == 1; // Index 1 là Xuất kho
             if (isOutput)
             {
-                var (totalQty, totalWeight) = GetCurrentDepartmentTotal(dept);
+                string typeCode = GetTypeWasteCode();
+                var stock = GetStockForType(dept, typeCode);
+                string typeName = (typeCode == "WATER") ? "液態 (Nước thải)" : "固態 (Rác thải)";
 
-                if (qtyCurrent > totalQty || weightCurrent > totalWeight)
+                if (qtyCurrent > stock.qty || weightCurrent > stock.weight)
                 {
-                    MessageBox.Show($"Lỗi: Không đủ hàng trong kho!\n\n" +
-                                    $"Tồn kho hiện tại: {totalQty} thùng / {totalWeight} kg\n" +
-                                    $"Bạn đang cố xuất: {qtyCurrent} thùng / {weightCurrent} kg",
-                                    "Cảnh báo xuất quá số lượng", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"Không đủ tồn kho cho: {typeName}\n" +
+                                    $"Tồn hiện tại: {stock.qty} thùng / {stock.weight} kg",
+                                    "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
             }
@@ -118,22 +167,23 @@ namespace Waste_inv_application
             }
 
             string user = lblHeaderUser.Text.Substring(0, Math.Min(lblHeaderUser.Text.Length, 6));
+            string typeWasteCode = GetTypeWasteCode(); // Lấy mã chuẩn tiếng Anh (GENERAL, WATER,...)
 
             try
             {
                 DatabaseHelper.ExecuteTransaction((conn, trans) =>
                 {
                     string sql = $@"INSERT INTO {DbSchema.Wastes.TABLE_NAME} (
-                                  {DbSchema.Wastes.COL_Department}, {DbSchema.Wastes.COL_Type_waste}, 
-                                  {DbSchema.Wastes.COL_Quantity_waste}, {DbSchema.Wastes.COL_Weight_waste}, 
-                                  {DbSchema.Wastes.COL_Action}, {DbSchema.Wastes.COL_Created_by}, 
-                                  {DbSchema.Wastes.COL_Date_report}, {DbSchema.Wastes.COL_Is_cancel}) 
-                                  VALUES (:d, :t, :q, :w, :a, :u, :r, 'N')";
+                            {DbSchema.Wastes.COL_Department}, {DbSchema.Wastes.COL_Type_waste}, 
+                            {DbSchema.Wastes.COL_Quantity_waste}, {DbSchema.Wastes.COL_Weight_waste}, 
+                            {DbSchema.Wastes.COL_Action}, {DbSchema.Wastes.COL_Created_by}, 
+                            {DbSchema.Wastes.COL_Date_report}, {DbSchema.Wastes.COL_Is_cancel}) 
+                            VALUES (:d, :t, :q, :w, :a, :u, :r, 'N')";
 
                     using (var cmd = new OracleCommand(sql, conn) { Transaction = trans, BindByName = true })
                     {
                         cmd.Parameters.Add("d", OracleDbType.Varchar2).Value = dept;
-                        cmd.Parameters.Add("t", OracleDbType.Varchar2).Value = cboTypeWaste.Text;
+                        cmd.Parameters.Add("t", OracleDbType.Varchar2).Value = typeWasteCode; // Lưu mã chuẩn vào DB
                         cmd.Parameters.Add("q", OracleDbType.Int64).Value = (long)numQuantityWaste.Value;
                         cmd.Parameters.Add("w", OracleDbType.Int64).Value = (long)numWeightWaste.Value;
                         cmd.Parameters.Add("a", OracleDbType.Int32).Value = cboAction.SelectedIndex == 0 ? 1 : 0;
@@ -188,50 +238,50 @@ namespace Waste_inv_application
                 return false;
             }
         }
-
-        private (long totalQty, long totalWeight) GetCurrentDepartmentTotal(string department)
+        private (long qty, long weight) GetStockForType(string dept, string type)
         {
-            string sql = $@"SELECT 
-                    NVL(SUM(CASE WHEN {DbSchema.Wastes.COL_Action} = 1 THEN {DbSchema.Wastes.COL_Quantity_waste} ELSE -{DbSchema.Wastes.COL_Quantity_waste} END), 0) AS total_qty,
-                    NVL(SUM(CASE WHEN {DbSchema.Wastes.COL_Action} = 1 THEN {DbSchema.Wastes.COL_Weight_waste} ELSE -{DbSchema.Wastes.COL_Weight_waste} END), 0) AS total_weight
-                 FROM {DbSchema.Wastes.TABLE_NAME}
-                 WHERE UPPER({DbSchema.Wastes.COL_Department}) = UPPER(:p_department) 
-                   AND {DbSchema.Wastes.COL_Is_cancel} = 'N'";
-
-            try
+            // Hàm này chỉ lấy đúng số lượng của 1 loại cụ thể để kiểm tra lúc xuất
+            DataTable dt = GetTotalStockByDepartment(dept);
+            foreach (DataRow row in dt.Rows)
             {
-                DataTable dt = DatabaseHelper.ExecuteQuery(sql, new OracleParameter[] { new OracleParameter("p_department", department) });
-                if (dt != null && dt.Rows.Count > 0)
-                {
-                    long qty = Convert.ToInt64(dt.Rows[0]["total_qty"]);
-                    long weight = Convert.ToInt64(dt.Rows[0]["total_weight"]);
-                    return (qty, weight);
-                }
+                if (row[DbSchema.Wastes.COL_Type_waste].ToString() == type)
+                    return (Convert.ToInt64(row["qty"]), Convert.ToInt64(row["weight"]));
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi tính tồn kho: " + ex.Message, "Lỗi Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
             return (0, 0);
         }
+        private DataTable GetTotalStockByDepartment(string department)
+        {
+            // Truy vấn này lấy tổng của từng loại (GENERAL và WATER)
+            string sql = $@"SELECT {DbSchema.Wastes.COL_Type_waste}, 
+                    SUM(CASE WHEN {DbSchema.Wastes.COL_Action} = 1 THEN {DbSchema.Wastes.COL_Quantity_waste} ELSE -{DbSchema.Wastes.COL_Quantity_waste} END) as qty,
+                    SUM(CASE WHEN {DbSchema.Wastes.COL_Action} = 1 THEN {DbSchema.Wastes.COL_Weight_waste} ELSE -{DbSchema.Wastes.COL_Weight_waste} END) as weight
+                   FROM {DbSchema.Wastes.TABLE_NAME}
+                   WHERE UPPER({DbSchema.Wastes.COL_Department}) = UPPER(:dept) 
+                     AND {DbSchema.Wastes.COL_Is_cancel} = 'N'
+                   GROUP BY {DbSchema.Wastes.COL_Type_waste}";
 
-        // Hàm nạp dữ liệu chạy ngầm bất đồng bộ (Lazy Loading / Background Load)
+            return DatabaseHelper.ExecuteQuery(sql, new OracleParameter[] { new OracleParameter("dept", department) });
+        }
+
+        // Hàm nạp dữ liệu chạy ngầm bất đồng bộ
+        // Hàm nạp dữ liệu chạy ngầm bất đồng bộ
         private async Task LoadDataToGridViewAsync()
         {
             string dept = lblHeaderUser.Text.Substring(0, Math.Min(lblHeaderUser.Text.Length, 6));
 
-            // Đưa việc query Database ra Background Thread để tránh đơ giao diện
             DataTable dt = await Task.Run(() =>
             {
+                // 1. Thêm điều kiện AND Is_cancel = 'N' để các dòng đã hủy không bao giờ hiện lên lưới
                 string sql = $@"SELECT {DbSchema.Wastes.COL_Uid}, {DbSchema.Wastes.COL_Department}, {DbSchema.Wastes.COL_Date_report}, {DbSchema.Wastes.COL_Type_waste}, 
-                              {DbSchema.Wastes.COL_Quantity_waste}, {DbSchema.Wastes.COL_Weight_waste}, {DbSchema.Wastes.COL_Is_cancel}, {DbSchema.Wastes.COL_Action} 
-                              FROM {DbSchema.Wastes.TABLE_NAME} WHERE UPPER({DbSchema.Wastes.COL_Department}) = :dept ORDER BY {DbSchema.Wastes.COL_Uid} DESC";
+                    {DbSchema.Wastes.COL_Quantity_waste}, {DbSchema.Wastes.COL_Weight_waste}, {DbSchema.Wastes.COL_Is_cancel}, {DbSchema.Wastes.COL_Action} 
+                    FROM {DbSchema.Wastes.TABLE_NAME} 
+                    WHERE UPPER({DbSchema.Wastes.COL_Department}) = :dept 
+                      AND {DbSchema.Wastes.COL_Is_cancel} = 'N' 
+                    ORDER BY {DbSchema.Wastes.COL_Uid} DESC";
 
                 return DatabaseHelper.ExecuteQuery(sql, new OracleParameter[] { new OracleParameter("dept", dept) });
             });
 
-            // Đổ dữ liệu lên UI Thread
             dgvResults.Rows.Clear();
             if (dt != null)
             {
@@ -243,18 +293,20 @@ namespace Waste_inv_application
                     string dateReportStr = row[DbSchema.Wastes.COL_Date_report] != DBNull.Value ? Convert.ToDateTime(row[DbSchema.Wastes.COL_Date_report]).ToString("dd/MM/yyyy") : "";
                     int actionVal = row[DbSchema.Wastes.COL_Action] != DBNull.Value ? Convert.ToInt32(row[DbSchema.Wastes.COL_Action]) : 1;
 
+                    string dbTypeWaste = row[DbSchema.Wastes.COL_Type_waste] != DBNull.Value ? row[DbSchema.Wastes.COL_Type_waste].ToString() : "GENERAL";
+                    string displayTypeWaste = GetTypeWasteDisplay(dbTypeWaste);
+
                     int r = dgvResults.Rows.Add(
                         isChecked,
                         row[DbSchema.Wastes.COL_Department] != DBNull.Value ? row[DbSchema.Wastes.COL_Department].ToString() : dept,
                         dateReportStr,
-                        row[DbSchema.Wastes.COL_Type_waste] != DBNull.Value ? row[DbSchema.Wastes.COL_Type_waste].ToString() : "",
+                        displayTypeWaste,
                         row[DbSchema.Wastes.COL_Quantity_waste] != DBNull.Value ? Convert.ToDecimal(row[DbSchema.Wastes.COL_Quantity_waste]) : 0,
                         row[DbSchema.Wastes.COL_Weight_waste] != DBNull.Value ? Convert.ToDecimal(row[DbSchema.Wastes.COL_Weight_waste]) : 0,
-                        actionVal == 1 ? "Nhập kho" : "Xuất kho"
+                        GetActionDisplay(actionVal) // Hiển thị Nhập/Xuất kho theo đúng ngôn ngữ (Việt/Trung)
                     );
                     dgvResults.Rows[r].Tag = row[DbSchema.Wastes.COL_Uid];
 
-                    // Khóa cứng ô checkbox nếu bản ghi này đã hủy
                     if (isChecked)
                     {
                         dgvResults.Rows[r].Cells["colIsCancel"].ReadOnly = true;
@@ -262,14 +314,33 @@ namespace Waste_inv_application
                 }
             }
 
-            var (totalQty, totalWeight) = await Task.Run(() => GetCurrentDepartmentTotal(dept));
-            lblTotalQtyVal.Text = totalQty.ToString("N0");
-            lblTotalWeightVal.Text = totalWeight.ToString("N0");
-            lblSelectedSamplesVal.Text = dgvResults.Rows.Count.ToString();
+            // 2. Tính toán và cập nhật tổng tồn kho cho 2 loại (固態 / 液態)
+            DataTable dtTotal = await Task.Run(() => GetTotalStockByDepartment(dept));
+            long totalQtyGeneral = 0, totalWeightGeneral = 0;
+            long totalQtyWater = 0, totalWeightWater = 0;
 
+            foreach (DataRow row in dtTotal.Rows)
+            {
+                string type = row[DbSchema.Wastes.COL_Type_waste].ToString();
+                long q = Convert.ToInt64(row["qty"]);
+                long w = Convert.ToInt64(row["weight"]);
+
+                if (type == "WATER") { totalQtyWater = q; totalWeightWater = w; }
+                else { totalQtyGeneral = q; totalWeightGeneral = w; }
+            }
+
+            // 3. Đưa lên giao diện các Label tương ứng (Bạn hãy đổi tên lbl... cho khớp với thiết kế của bạn nhé)
+            // Ví dụ hiển thị: Số lượng và Khối lượng cho Rác thải (固態) và Nước thải (液態)
+            if (lblGeneralQty != null) lblGeneralQty.Text = totalQtyGeneral.ToString("N0");
+            if (lblGeneralWeight != null) lblGeneralWeight.Text = totalWeightGeneral.ToString("N0");
+
+            if (lblWaterQty != null) lblWaterQty.Text = totalQtyWater.ToString("N0");
+            if (lblWaterWeight != null) lblWaterWeight.Text = totalWeightWater.ToString("N0");
+
+            lblSelectedSamplesVal.Text = dgvResults.Rows.Count.ToString();
             if (lblStatus != null)
             {
-                lblStatus.Text = $"Đã nạp {dgvResults.Rows.Count} bản ghi của bộ phận {dept}.";
+                lblStatus.Text = $"Đã nạp {dgvResults.Rows.Count} bản ghi hợp lệ của bộ phận {dept}.";
             }
         }
 
@@ -279,7 +350,6 @@ namespace Waste_inv_application
 
             DataGridViewCell cell = dgvResults.Rows[e.RowIndex].Cells[e.ColumnIndex];
 
-            // Nếu ô đã bị khóa, không cho phép tương tác bỏ chọn
             if (cell.ReadOnly) return;
 
             dgvResults.EndEdit();
@@ -301,12 +371,10 @@ namespace Waste_inv_application
 
                     if (isSuccess)
                     {
-                        // Hủy thành công -> Khóa cứng ô checkbox lại ngay lập tức
                         cell.ReadOnly = true;
                     }
                     else
                     {
-                        // Nếu hủy thất bại, hoàn tác lại trạng thái chưa check
                         dgvResults.CellValueChanged -= dgvResults_CellContentClick;
                         cell.Value = false;
                         dgvResults.CellValueChanged += dgvResults_CellContentClick;
@@ -314,20 +382,16 @@ namespace Waste_inv_application
                 }
             }
         }
-       
 
         private void btnLogout_Click_1(object sender, EventArgs e)
         {
             if (MessageBox.Show("Bạn có muốn đăng xuất khỏi hệ thống?", "Xác nhận đăng xuất",
-         MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+           MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 UserSession.CurrentUsername = null;
-
-                // Gán kết quả là Retry để báo hiệu muốn đăng xuất
                 this.DialogResult = DialogResult.Retry;
                 this.Close();
             }
-        
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -338,14 +402,12 @@ namespace Waste_inv_application
 
         private async void btnReload_Click(object sender, EventArgs e)
         {
-            // Cập nhật trạng thái và khóa tạm lưới trong lúc đang nạp lại
             if (lblStatus != null)
             {
                 lblStatus.Text = "Đang làm mới dữ liệu...";
             }
             dgvResults.Enabled = false;
 
-            // Gọi lại hàm nạp dữ liệu bất đồng bộ
             await LoadDataToGridViewAsync();
 
             dgvResults.Enabled = true;
@@ -356,6 +418,23 @@ namespace Waste_inv_application
             if (this.DialogResult == DialogResult.None)
             {
                 this.DialogResult = DialogResult.Cancel;
+            }
+        }
+
+        private void cboLanguage_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LanguageManager.CurrentLanguageIndex = cboLanguage.SelectedIndex;
+            LanguageManager.ApplyLanguage(this);
+
+            // Khi đổi ngôn ngữ, gọi load lại lưới để tự động dịch lại cột Loại rác theo ngôn ngữ mới
+            _ = LoadDataToGridViewAsync();
+        }
+
+        private void dgvResults_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            if (dgvResults.Columns[e.ColumnIndex].Name != "colIsCancel")
+            {
+                e.Cancel = true;
             }
         }
     }
