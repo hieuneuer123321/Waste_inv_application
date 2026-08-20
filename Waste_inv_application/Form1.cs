@@ -23,8 +23,11 @@ namespace Waste_inv_application
 
         private void btn_login_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.OK;
-            /*
+
+            // Báo cho Program.cs biết là đăng nhập thành công và đóng form login
+            //this.DialogResult = DialogResult.OK;
+            //this.Close();
+            
             string username = txt_username.Text.Trim();
             string password = txt_password.Text.Trim();
 
@@ -41,11 +44,11 @@ namespace Waste_inv_application
             {
                 // 2. Gọi hàm kiểm tra đăng nhập
                 if (ProcessLogin(username, password))
-                {
-                    MessageBox.Show($"Đăng nhập thành công! Xin chào {UserSession.Username}.",
-                                    "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    this.DialogResult = DialogResult.OK; // Báo cho Program.cs mở FormMain
+                {                   
+                    // Reset lại các ô nhập liệu trên form login nếu cần
+                    txt_password.Clear();
+                    txt_username.Focus();
+                    this.DialogResult = DialogResult.OK;
                     this.Close();
                 }
                 else
@@ -61,7 +64,8 @@ namespace Waste_inv_application
                 MessageBox.Show("Không thể kết nối CSDL Oracle:\n" + ex.Message,
                                 "Lỗi CSDL", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            */
+            
+
         }
         private bool ProcessLogin(string username, string password)
         {

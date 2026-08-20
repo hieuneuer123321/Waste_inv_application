@@ -1,6 +1,7 @@
 ﻿using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Data;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using Waste_inv_application.Helpers;
 
@@ -8,13 +9,33 @@ namespace Waste_inv_application
 {
     public partial class CounterForm : Form
     {
-        public CounterForm() => InitializeComponent();
+        public CounterForm()
+        {
+            InitializeComponent();
+            // Đăng ký sự kiện Shown để load dữ liệu sau khi form đã hiện lên màn hình
+            this.Shown += CounterForm_Shown;
+        }
 
         private void CounterForm_Load(object sender, EventArgs e)
         {
             string user = !string.IsNullOrEmpty(UserSession.CurrentUsername) ? UserSession.CurrentUsername.Trim().ToUpper() : "CM100";
             lblHeaderUser.Text = txtDepartment.Text = user;
-            LoadDataToGridView();
+            lblStatus.ForeColor = System.Drawing.Color.DarkRed;
+            this.cboAction.SelectedIndex = 0;
+            this.cboTypeWaste.SelectedIndex = 0;
+            // Không gọi Load dữ liệu nặng ở đây để tránh đơ form lúc mở
+        }
+
+        // Sự kiện chạy ngay sau khi Form hiển thị hoàn tất lên màn hình
+        private async void CounterForm_Shown(object sender, EventArgs e)
+        {
+            if (lblStatus != null) lblStatus.Text = "Đang kết nối và tải dữ liệu...";
+            dgvResults.Enabled = false; // Tạm khóa lưới trong lúc đang nạp dữ liệu
+
+            // Gọi hàm load dữ liệu bất đồng bộ (không làm đơ UI)
+            await LoadDataToGridViewAsync();
+
+            dgvResults.Enabled = true;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -71,18 +92,12 @@ namespace Waste_inv_application
                 return;
             }
 
-            if (MessageBox.Show("Bạn có chắc chắn muốn lưu dữ liệu không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
-            {
-                return;
-            }
-
             string dept = txtDepartment.Text.Trim().ToUpper();
-            string user = lblHeaderUser.Text.Substring(0, Math.Min(lblHeaderUser.Text.Length, 6));
             long qtyCurrent = (long)numQuantityWaste.Value;
             long weightCurrent = (long)numWeightWaste.Value;
             bool isOutput = cboAction.SelectedIndex == 1; // Giả sử Index 1 là Xuất kho
 
-            // 1. CHỈ CHECK KHI LÀ HÀNH ĐỘNG XUẤT KHO
+            // 1. Kiểm tra tồn kho trước khi xuất
             if (isOutput)
             {
                 var (totalQty, totalWeight) = GetCurrentDepartmentTotal(dept);
@@ -93,7 +108,7 @@ namespace Waste_inv_application
                                     $"Tồn kho hiện tại: {totalQty} thùng / {totalWeight} kg\n" +
                                     $"Bạn đang cố xuất: {qtyCurrent} thùng / {weightCurrent} kg",
                                     "Cảnh báo xuất quá số lượng", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return; // Ngắt không cho lưu
+                    return;
                 }
             }
 
@@ -101,6 +116,9 @@ namespace Waste_inv_application
             {
                 return;
             }
+
+            string user = lblHeaderUser.Text.Substring(0, Math.Min(lblHeaderUser.Text.Length, 6));
+
             try
             {
                 DatabaseHelper.ExecuteTransaction((conn, trans) =>
@@ -127,7 +145,7 @@ namespace Waste_inv_application
                 });
 
                 MessageBox.Show("Lưu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadDataToGridView();
+                _ = LoadDataToGridViewAsync(); // Load lại dữ liệu bất đồng bộ
 
                 numQuantityWaste.Value = 0;
                 numWeightWaste.Value = 0;
@@ -161,7 +179,7 @@ namespace Waste_inv_application
                 });
 
                 MessageBox.Show("Đã hủy bản ghi và cập nhật tồn kho thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadDataToGridView();
+                _ = LoadDataToGridViewAsync();
                 return true;
             }
             catch (Exception ex)
@@ -198,16 +216,23 @@ namespace Waste_inv_application
             return (0, 0);
         }
 
-        private void LoadDataToGridView()
+        // Hàm nạp dữ liệu chạy ngầm bất đồng bộ (Lazy Loading / Background Load)
+        private async Task LoadDataToGridViewAsync()
         {
-            dgvResults.Rows.Clear();
             string dept = lblHeaderUser.Text.Substring(0, Math.Min(lblHeaderUser.Text.Length, 6));
 
-            string sql = $@"SELECT {DbSchema.Wastes.COL_Uid}, {DbSchema.Wastes.COL_Department}, {DbSchema.Wastes.COL_Date_report}, {DbSchema.Wastes.COL_Type_waste}, 
-                          {DbSchema.Wastes.COL_Quantity_waste}, {DbSchema.Wastes.COL_Weight_waste}, {DbSchema.Wastes.COL_Is_cancel}, {DbSchema.Wastes.COL_Action} 
-                          FROM {DbSchema.Wastes.TABLE_NAME} WHERE UPPER({DbSchema.Wastes.COL_Department}) = :dept ORDER BY {DbSchema.Wastes.COL_Uid} DESC";
+            // Đưa việc query Database ra Background Thread để tránh đơ giao diện
+            DataTable dt = await Task.Run(() =>
+            {
+                string sql = $@"SELECT {DbSchema.Wastes.COL_Uid}, {DbSchema.Wastes.COL_Department}, {DbSchema.Wastes.COL_Date_report}, {DbSchema.Wastes.COL_Type_waste}, 
+                              {DbSchema.Wastes.COL_Quantity_waste}, {DbSchema.Wastes.COL_Weight_waste}, {DbSchema.Wastes.COL_Is_cancel}, {DbSchema.Wastes.COL_Action} 
+                              FROM {DbSchema.Wastes.TABLE_NAME} WHERE UPPER({DbSchema.Wastes.COL_Department}) = :dept ORDER BY {DbSchema.Wastes.COL_Uid} DESC";
 
-            DataTable dt = DatabaseHelper.ExecuteQuery(sql, new OracleParameter[] { new OracleParameter("dept", dept) });
+                return DatabaseHelper.ExecuteQuery(sql, new OracleParameter[] { new OracleParameter("dept", dept) });
+            });
+
+            // Đổ dữ liệu lên UI Thread
+            dgvResults.Rows.Clear();
             if (dt != null)
             {
                 foreach (DataRow row in dt.Rows)
@@ -229,7 +254,7 @@ namespace Waste_inv_application
                     );
                     dgvResults.Rows[r].Tag = row[DbSchema.Wastes.COL_Uid];
 
-                    // Khóa cứng ô checkbox nếu bản ghi này đã hủy từ database
+                    // Khóa cứng ô checkbox nếu bản ghi này đã hủy
                     if (isChecked)
                     {
                         dgvResults.Rows[r].Cells["colIsCancel"].ReadOnly = true;
@@ -237,10 +262,11 @@ namespace Waste_inv_application
                 }
             }
 
-            var (totalQty, totalWeight) = GetCurrentDepartmentTotal(dept);
+            var (totalQty, totalWeight) = await Task.Run(() => GetCurrentDepartmentTotal(dept));
             lblTotalQtyVal.Text = totalQty.ToString("N0");
             lblTotalWeightVal.Text = totalWeight.ToString("N0");
             lblSelectedSamplesVal.Text = dgvResults.Rows.Count.ToString();
+
             if (lblStatus != null)
             {
                 lblStatus.Text = $"Đã nạp {dgvResults.Rows.Count} bản ghi của bộ phận {dept}.";
@@ -253,7 +279,7 @@ namespace Waste_inv_application
 
             DataGridViewCell cell = dgvResults.Rows[e.RowIndex].Cells[e.ColumnIndex];
 
-            // Nếu ô đã bị khóa (đã hủy trước đó), không cho phép tương tác bỏ chọn
+            // Nếu ô đã bị khóa, không cho phép tương tác bỏ chọn
             if (cell.ReadOnly) return;
 
             dgvResults.EndEdit();
@@ -286,6 +312,50 @@ namespace Waste_inv_application
                         dgvResults.CellValueChanged += dgvResults_CellContentClick;
                     }
                 }
+            }
+        }
+       
+
+        private void btnLogout_Click_1(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Bạn có muốn đăng xuất khỏi hệ thống?", "Xác nhận đăng xuất",
+         MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                UserSession.CurrentUsername = null;
+
+                // Gán kết quả là Retry để báo hiệu muốn đăng xuất
+                this.DialogResult = DialogResult.Retry;
+                this.Close();
+            }
+        
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            numQuantityWaste.Value = 0;
+            numWeightWaste.Value = 0;
+        }
+
+        private async void btnReload_Click(object sender, EventArgs e)
+        {
+            // Cập nhật trạng thái và khóa tạm lưới trong lúc đang nạp lại
+            if (lblStatus != null)
+            {
+                lblStatus.Text = "Đang làm mới dữ liệu...";
+            }
+            dgvResults.Enabled = false;
+
+            // Gọi lại hàm nạp dữ liệu bất đồng bộ
+            await LoadDataToGridViewAsync();
+
+            dgvResults.Enabled = true;
+        }
+
+        private void CounterForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (this.DialogResult == DialogResult.None)
+            {
+                this.DialogResult = DialogResult.Cancel;
             }
         }
     }

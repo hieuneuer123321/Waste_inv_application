@@ -16,6 +16,7 @@ namespace Waste_inv_application.Helpers
         // Thông tin tổng tồn kho lũy kế của User
         public static long QuantityWasteTotal { get; set; }
         public static long WeightWasteTotal { get; set; }
+        public static bool IsLoggedOut { get; set; } = false;
 
         // Kiểm tra trạng thái đăng nhập
         public static bool IsLoggedIn => CurrentUid > 0 && !string.IsNullOrEmpty(CurrentUsername);

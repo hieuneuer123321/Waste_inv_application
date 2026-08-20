@@ -35,6 +35,7 @@
             this.lblAction = new System.Windows.Forms.Label();
             this.cboAction = new System.Windows.Forms.ComboBox();
             this.pnlActions = new System.Windows.Forms.Panel();
+            this.btnReload = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.grpResults = new System.Windows.Forms.GroupBox();
@@ -102,6 +103,7 @@
             this.btnLogout.TabIndex = 2;
             this.btnLogout.Text = "Logout";
             this.btnLogout.UseVisualStyleBackColor = false;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click_1);
             // 
             // lblHeaderUser
             // 
@@ -231,17 +233,33 @@
             this.cboAction.Name = "cboAction";
             this.cboAction.Size = new System.Drawing.Size(180, 23);
             this.cboAction.TabIndex = 4;
-            this.cboAction.SelectedIndex = 0;
             // 
             // pnlActions
             // 
             this.pnlActions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
+            this.pnlActions.Controls.Add(this.btnReload);
             this.pnlActions.Controls.Add(this.btnClear);
             this.pnlActions.Controls.Add(this.btnSave);
             this.pnlActions.Location = new System.Drawing.Point(20, 190);
             this.pnlActions.Name = "pnlActions";
             this.pnlActions.Size = new System.Drawing.Size(636, 40);
             this.pnlActions.TabIndex = 2;
+            // 
+            // btnReload
+            // 
+            this.btnReload.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.btnReload.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReload.FlatAppearance.BorderSize = 0;
+            this.btnReload.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReload.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnReload.ForeColor = System.Drawing.Color.White;
+            this.btnReload.Location = new System.Drawing.Point(543, 5);
+            this.btnReload.Name = "btnReload";
+            this.btnReload.Size = new System.Drawing.Size(90, 30);
+            this.btnReload.TabIndex = 3;
+            this.btnReload.Text = "↻ Làm mới";
+            this.btnReload.UseVisualStyleBackColor = false;
+            this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
             // 
             // btnClear
             // 
@@ -257,6 +275,7 @@
             this.btnClear.TabIndex = 2;
             this.btnClear.Text = "❌ Xóa form";
             this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnSave
             // 
@@ -421,7 +440,6 @@
             this.cboTypeWaste.Name = "cboTypeWaste";
             this.cboTypeWaste.Size = new System.Drawing.Size(152, 23);
             this.cboTypeWaste.TabIndex = 16;
-            this.cboTypeWaste.SelectedIndex = 0;
             // 
             // CounterForm
             // 
@@ -447,6 +465,7 @@
             this.Name = "CounterForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Trang Chủ - Quản Lý Rác Thải";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CounterForm_FormClosing);
             this.Load += new System.EventHandler(this.CounterForm_Load);
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
@@ -505,5 +524,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colAction;
         private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ToolStripStatusLabel lblStatus;
+        private System.Windows.Forms.Button btnReload;
     }
 }
