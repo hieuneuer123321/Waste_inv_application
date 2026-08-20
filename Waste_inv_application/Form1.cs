@@ -25,9 +25,9 @@ namespace Waste_inv_application
         {
 
             //Báo cho Program.cs biết là đăng nhập thành công và đóng form login
-            this.DialogResult = DialogResult.OK;
-            this.Close();
-            /*
+            //this.DialogResult = DialogResult.OK;
+            //this.Close();
+            
             string username = txt_username.Text.Trim();
             string password = txt_password.Text.Trim();
 
@@ -68,7 +68,7 @@ namespace Waste_inv_application
                 MessageBox.Show("Không thể kết nối CSDL Oracle:\n" + ex.Message,
                                 "Lỗi CSDL", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }        
-            */
+            
         }
         private bool ProcessLogin(string username, string password)
         {

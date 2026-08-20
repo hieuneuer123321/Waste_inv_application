@@ -25,7 +25,7 @@ public static class LanguageManager
         { "Lbl_Department", new string[] { "Phòng ban (Dept):", "部門 (Dept):" } },
         { "Lbl_DateReport", new string[] { "Ngày báo cáo:", "輸入日期:" } },
         { "Lbl_TypeWaste", new string[] { "Loại rác thải:", "垃圾類別:" } },
-        { "Lbl_Quantity", new string[] { "Số lượng:", "數量:" } },
+        { "Lbl_Quantity", new string[] { "Số lượng (thùng):", "數量(桶):" } },
         { "Lbl_Weight", new string[] { "Trọng lượng (kg):", "重量 (kg):" } },
         { "Lbl_Action", new string[] { "Hành động:", "作業:" } },
 
