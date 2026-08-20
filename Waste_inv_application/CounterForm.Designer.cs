@@ -40,6 +40,10 @@
             this.btnClear = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.grpResults = new System.Windows.Forms.GroupBox();
+            this.lblWaterWeight = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblWaterQty = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.dgvResults = new System.Windows.Forms.DataGridView();
             this.colIsCancel = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.colDepartment = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,10 +59,6 @@
             this.lblSelectedSamplesVal = new System.Windows.Forms.Label();
             this.lblSelectedSamplesTitle = new System.Windows.Forms.Label();
             this.cboTypeWaste = new System.Windows.Forms.ComboBox();
-            this.lblWaterWeight = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lblWaterQty = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.statusStrip.SuspendLayout();
             this.pnlHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numQuantityWaste)).BeginInit();
@@ -103,9 +103,9 @@
             this.cboLanguage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboLanguage.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboLanguage.FormattingEnabled = true;
-            this.cboLanguage.Location = new System.Drawing.Point(400, 18);
+            this.cboLanguage.Location = new System.Drawing.Point(365, 18);
             this.cboLanguage.Name = "cboLanguage";
-            this.cboLanguage.Size = new System.Drawing.Size(95, 25);
+            this.cboLanguage.Size = new System.Drawing.Size(130, 25);
             this.cboLanguage.TabIndex = 5;
             this.cboLanguage.SelectedIndexChanged += new System.EventHandler(this.cboLanguage_SelectedIndexChanged);
             // 
@@ -255,7 +255,7 @@
             this.cboAction.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboAction.Items.AddRange(new object[] {
             "1 - Nhập (In) / 入庫 ",
-            "0 - Xuất (Out) / 出庫"});
+            "0 - Xuất (Out) / 清運"});
             this.cboAction.Location = new System.Drawing.Point(476, 117);
             this.cboAction.Name = "cboAction";
             this.cboAction.Size = new System.Drawing.Size(180, 23);
@@ -344,6 +344,46 @@
             this.grpResults.Tag = "Grp_ReportList";
             this.grpResults.Text = "Danh sách báo cáo rác thải";
             // 
+            // lblWaterWeight
+            // 
+            this.lblWaterWeight.AutoSize = true;
+            this.lblWaterWeight.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.lblWaterWeight.Location = new System.Drawing.Point(212, 347);
+            this.lblWaterWeight.Name = "lblWaterWeight";
+            this.lblWaterWeight.Size = new System.Drawing.Size(17, 19);
+            this.lblWaterWeight.TabIndex = 9;
+            this.lblWaterWeight.Text = "0";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(17, 347);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(181, 15);
+            this.label2.TabIndex = 10;
+            this.label2.Tag = "Lbl_WaterWeight";
+            this.label2.Text = "Tổng trọng lượng nước thải (kg):";
+            // 
+            // lblWaterQty
+            // 
+            this.lblWaterQty.AutoSize = true;
+            this.lblWaterQty.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.lblWaterQty.Location = new System.Drawing.Point(212, 324);
+            this.lblWaterQty.Name = "lblWaterQty";
+            this.lblWaterQty.Size = new System.Drawing.Size(17, 19);
+            this.lblWaterQty.TabIndex = 11;
+            this.lblWaterQty.Text = "0";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(17, 324);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(183, 15);
+            this.label4.TabIndex = 12;
+            this.label4.Tag = "Lbl_WaterQty";
+            this.label4.Text = "Tổng số lượng nước thải (thùng):";
+            // 
             // dgvResults
             // 
             this.dgvResults.AllowUserToAddRows = false;
@@ -413,7 +453,7 @@
             // 
             this.lblGeneralWeight.AutoSize = true;
             this.lblGeneralWeight.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.lblGeneralWeight.Location = new System.Drawing.Point(548, 347);
+            this.lblGeneralWeight.Location = new System.Drawing.Point(530, 347);
             this.lblGeneralWeight.Name = "lblGeneralWeight";
             this.lblGeneralWeight.Size = new System.Drawing.Size(17, 19);
             this.lblGeneralWeight.TabIndex = 2;
@@ -422,7 +462,7 @@
             // lable20
             // 
             this.lable20.AutoSize = true;
-            this.lable20.Location = new System.Drawing.Point(363, 347);
+            this.lable20.Location = new System.Drawing.Point(345, 347);
             this.lable20.Name = "lable20";
             this.lable20.Size = new System.Drawing.Size(170, 15);
             this.lable20.TabIndex = 3;
@@ -433,7 +473,7 @@
             // 
             this.lblGeneralQty.AutoSize = true;
             this.lblGeneralQty.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.lblGeneralQty.Location = new System.Drawing.Point(548, 324);
+            this.lblGeneralQty.Location = new System.Drawing.Point(530, 324);
             this.lblGeneralQty.Name = "lblGeneralQty";
             this.lblGeneralQty.Size = new System.Drawing.Size(17, 19);
             this.lblGeneralQty.TabIndex = 4;
@@ -442,7 +482,7 @@
             // lable100
             // 
             this.lable100.AutoSize = true;
-            this.lable100.Location = new System.Drawing.Point(363, 324);
+            this.lable100.Location = new System.Drawing.Point(345, 324);
             this.lable100.Name = "lable100";
             this.lable100.Size = new System.Drawing.Size(172, 15);
             this.lable100.TabIndex = 5;
@@ -453,7 +493,7 @@
             // 
             this.lblSelectedSamplesVal.AutoSize = true;
             this.lblSelectedSamplesVal.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.lblSelectedSamplesVal.Location = new System.Drawing.Point(548, 371);
+            this.lblSelectedSamplesVal.Location = new System.Drawing.Point(530, 371);
             this.lblSelectedSamplesVal.Name = "lblSelectedSamplesVal";
             this.lblSelectedSamplesVal.Size = new System.Drawing.Size(17, 19);
             this.lblSelectedSamplesVal.TabIndex = 6;
@@ -462,7 +502,7 @@
             // lblSelectedSamplesTitle
             // 
             this.lblSelectedSamplesTitle.AutoSize = true;
-            this.lblSelectedSamplesTitle.Location = new System.Drawing.Point(363, 373);
+            this.lblSelectedSamplesTitle.Location = new System.Drawing.Point(345, 373);
             this.lblSelectedSamplesTitle.Name = "lblSelectedSamplesTitle";
             this.lblSelectedSamplesTitle.Size = new System.Drawing.Size(84, 15);
             this.lblSelectedSamplesTitle.TabIndex = 7;
@@ -479,46 +519,6 @@
             this.cboTypeWaste.Name = "cboTypeWaste";
             this.cboTypeWaste.Size = new System.Drawing.Size(152, 23);
             this.cboTypeWaste.TabIndex = 16;
-            // 
-            // lblWaterWeight
-            // 
-            this.lblWaterWeight.AutoSize = true;
-            this.lblWaterWeight.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.lblWaterWeight.Location = new System.Drawing.Point(212, 347);
-            this.lblWaterWeight.Name = "lblWaterWeight";
-            this.lblWaterWeight.Size = new System.Drawing.Size(17, 19);
-            this.lblWaterWeight.TabIndex = 9;
-            this.lblWaterWeight.Text = "0";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(17, 347);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(181, 15);
-            this.label2.TabIndex = 10;
-            this.label2.Tag = "Lbl_WaterWeight";
-            this.label2.Text = "Tổng trọng lượng nước thải (kg):";
-            // 
-            // lblWaterQty
-            // 
-            this.lblWaterQty.AutoSize = true;
-            this.lblWaterQty.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.lblWaterQty.Location = new System.Drawing.Point(212, 324);
-            this.lblWaterQty.Name = "lblWaterQty";
-            this.lblWaterQty.Size = new System.Drawing.Size(17, 19);
-            this.lblWaterQty.TabIndex = 11;
-            this.lblWaterQty.Text = "0";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(17, 324);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(183, 15);
-            this.label4.TabIndex = 12;
-            this.label4.Tag = "Lbl_WaterQty";
-            this.label4.Text = "Tổng số lượng nước thải (thùng):";
             // 
             // CounterForm
             // 

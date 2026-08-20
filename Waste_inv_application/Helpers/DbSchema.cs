@@ -18,9 +18,11 @@ namespace Waste_inv_application.Helpers
             public const string COL_Username = "username";
             public const string COL_Password = "password_user";
 
-            // Các cột tổng tồn kho lũy kế (Mới chuyển từ Wastes sang)
-            public const string COL_Quantity_waste_total = "quantity_waste_total";
-            public const string COL_Weight_waste_total = "weight_waste_total";
+            // Các cột tổng tồn kho phân tách theo loại rác thải và nước thải
+            public const string COL_Qty_General = "total_qty_general";
+            public const string COL_Weight_General = "total_weight_general";
+            public const string COL_Qty_Water = "total_qty_water";
+            public const string COL_Weight_Water = "total_weight_water";
 
             // Cột Audit Log
             public const string COL_Created_by = "created_by";

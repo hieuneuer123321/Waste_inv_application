@@ -21,12 +21,12 @@ public static class LanguageManager
         // --- Form Chính (CounterForm) ---
         { "Form_Counter", new string[] { "Hệ thống Quản lý Phế liệu", "废料管理系统" } },
         { "Lbl_LoginHeader", new string[] { "🗑 HỆ THỐNG QUẢN LÝ RÁC THẢI", "🗑 废料管理系统" } }, // Đã bổ sung chuẩn xác
-        { "Lbl_Department", new string[] { "Phòng ban (Dept):", "部门 (Dept):" } },
-        { "Lbl_DateReport", new string[] { "Ngày báo cáo:", "报告日期:" } },
-        { "Lbl_TypeWaste", new string[] { "Loại rác thải:", "废料类型:" } },
-        { "Lbl_Quantity", new string[] { "Số lượng:", "数量:" } },
+        { "Lbl_Department", new string[] { "Phòng ban (Dept):", "部門 (Dept):" } },
+        { "Lbl_DateReport", new string[] { "Ngày báo cáo:", "輸入日期:" } },
+        { "Lbl_TypeWaste", new string[] { "Loại rác thải:", "垃圾類別:" } },
+        { "Lbl_Quantity", new string[] { "Số lượng:", "數量:" } },
         { "Lbl_Weight", new string[] { "Trọng lượng (kg):", "重量 (kg):" } },
-        { "Lbl_Action", new string[] { "Hành động:", "操作:" } },
+        { "Lbl_Action", new string[] { "Hành động:", "作業:" } },
 
         { "Btn_Save", new string[] { "💾 Lưu", "💾 保存" } },
         { "Btn_Clear", new string[] { "❌ Xóa form", "❌ 清空表单" } },
@@ -40,16 +40,16 @@ public static class LanguageManager
 
         // --- DataGridView Headers (Map theo Name của cột) ---
         { "Col_Cancel", new string[] { "", "" } },
-        { "Col_Dept", new string[] { "Phòng ban", "部门" } },
-        { "Col_Date", new string[] { "Ngày BC", "日期" } },
-        { "Col_Type", new string[] { "Loại rác", "废料类型" } },
-        { "Col_Qty", new string[] { "Số lượng", "数量" } },
+        { "Col_Dept", new string[] { "Phòng ban", "部門" } },
+        { "Col_Date", new string[] { "Ngày BC", "輸入日期" } },
+        { "Col_Type", new string[] { "Loại rác", "垃圾類別" } },
+        { "Col_Qty", new string[] { "Số lượng (thùng)", "數量(桶)" } },
         { "Col_Weight", new string[] { "Trọng lượng (Kg)", "重量 (Kg)" } },
-        { "Col_Action", new string[] { "Hành động", "进/出库" } },
-        { "Lbl_GeneralQty", new string[] { "Rác thải (固態) - SL:", "固态-数量:" } },
-        { "Lbl_GeneralWeight", new string[] { "Rác thải (固態) - KL:", "固态-重量:" } },
-        { "Lbl_WaterQty", new string[] { "Nước thải (液態) - SL:", "液态-数量:" } },
-        { "Lbl_WaterWeight", new string[] { "Nước thải (液態) - KL:", "液态-重量:" } },
+        { "Col_Action", new string[] { "Hành động", "作業" } },
+        { "Lbl_GeneralQty", new string[] { "Tổng số lượng rác thải (thùng):", "固態-總數量 (桶):" } },
+        { "Lbl_GeneralWeight", new string[] { "Tổng khối lượng Rác thải (Kg):", "固態-總重量 (Kg):" } },
+        { "Lbl_WaterQty", new string[] { "Tổng số lượng nước thải (thùng):", "液態-總數量 (桶):" } },
+        { "Lbl_WaterWeight", new string[] { "Tổng khối lượng nước thải (Kg):", "液態-總重量 (Kg):" } },
     };
 
     public static string GetText(string key)

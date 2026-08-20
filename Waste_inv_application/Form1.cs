@@ -25,9 +25,9 @@ namespace Waste_inv_application
         {
 
             //Báo cho Program.cs biết là đăng nhập thành công và đóng form login
-            //this.DialogResult = DialogResult.OK;
-            //this.Close();
-            
+            this.DialogResult = DialogResult.OK;
+            this.Close();
+            /*
             string username = txt_username.Text.Trim();
             string password = txt_password.Text.Trim();
 
@@ -53,8 +53,12 @@ namespace Waste_inv_application
                 }
                 else
                 {
-                    MessageBox.Show("Tên đăng nhập hoặc mật khẩu không chính xác!",
-                                    "Lỗi đăng nhập", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(
+                        GetMsg("Vui lòng nhập đầy đủ Tên đăng nhập và Mật khẩu!", "請完整輸入帳號和密碼！"),
+                        GetMsg("Thông báo", "通知"),
+                        MessageBoxButtons.OK, 
+                        MessageBoxIcon.Warning
+                    );
                     txt_password.Clear();
                     txt_password.Focus();
                 }
@@ -63,27 +67,28 @@ namespace Waste_inv_application
             {
                 MessageBox.Show("Không thể kết nối CSDL Oracle:\n" + ex.Message,
                                 "Lỗi CSDL", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            
-
+            }        
+            */
         }
         private bool ProcessLogin(string username, string password)
         {
-            // 1. Truy vấn bổ sung 2 cột tổng tồn kho từ DbSchema.Users
+            // 1. Truy vấn 4 cột tổng kho phân tách mới từ DbSchema.Users
             string sql = $@"SELECT {DbSchema.Users.COL_Uid}, 
-                           {DbSchema.Users.COL_Username}, 
-                           {DbSchema.Users.COL_Password},
-                           {DbSchema.Users.COL_Quantity_waste_total},
-                           {DbSchema.Users.COL_Weight_waste_total} 
-                    FROM {DbSchema.Users.TABLE_NAME} 
-                    WHERE UPPER({DbSchema.Users.COL_Username}) = UPPER(:p_user) 
-                      AND {DbSchema.Users.COL_Password} = :p_pass";
+                         {DbSchema.Users.COL_Username}, 
+                         {DbSchema.Users.COL_Password},
+                         {DbSchema.Users.COL_Qty_General},
+                         {DbSchema.Users.COL_Weight_General},
+                         {DbSchema.Users.COL_Qty_Water},
+                         {DbSchema.Users.COL_Weight_Water}
+                  FROM {DbSchema.Users.TABLE_NAME} 
+                  WHERE UPPER({DbSchema.Users.COL_Username}) = UPPER(:p_user) 
+                    AND {DbSchema.Users.COL_Password} = :p_pass";
 
             // 2. Khai báo OracleParameter chỉ định rõ kiểu Varchar2 để tránh lỗi bind tham số
             OracleParameter[] parameters = new OracleParameter[]
             {
-        new OracleParameter("p_user", OracleDbType.Varchar2) { Value = username != null ? username.Trim() : "" },
-        new OracleParameter("p_pass", OracleDbType.Varchar2) { Value = password ?? "" }
+                new OracleParameter("p_user", OracleDbType.Varchar2) { Value = username != null ? username.Trim() : "" },
+                new OracleParameter("p_pass", OracleDbType.Varchar2) { Value = password ?? "" }
             };
 
             // 3. Thực thi truy vấn
@@ -96,23 +101,26 @@ namespace Waste_inv_application
                 int uid = Convert.ToInt32(row[DbSchema.Users.COL_Uid]);
                 string dbUsername = row[DbSchema.Users.COL_Username] != DBNull.Value ? row[DbSchema.Users.COL_Username].ToString() : username;
 
-                long qtyTotal = row[DbSchema.Users.COL_Quantity_waste_total] != DBNull.Value
-                    ? Convert.ToInt64(row[DbSchema.Users.COL_Quantity_waste_total])
-                    : 0;
+                // Đọc giá trị 4 cột tổng kho mới (phòng hờ giá trị DBNull thì gán bằng 0)
+                long qtyGeneral = row[DbSchema.Users.COL_Qty_General] != DBNull.Value ? Convert.ToInt64(row[DbSchema.Users.COL_Qty_General]) : 0;
+                long weightGeneral = row[DbSchema.Users.COL_Weight_General] != DBNull.Value ? Convert.ToInt64(row[DbSchema.Users.COL_Weight_General]) : 0;
+                long qtyWater = row[DbSchema.Users.COL_Qty_Water] != DBNull.Value ? Convert.ToInt64(row[DbSchema.Users.COL_Qty_Water]) : 0;
+                long weightWater = row[DbSchema.Users.COL_Weight_Water] != DBNull.Value ? Convert.ToInt64(row[DbSchema.Users.COL_Weight_Water]) : 0;
 
-                long weightTotal = row[DbSchema.Users.COL_Weight_waste_total] != DBNull.Value
-                    ? Convert.ToInt64(row[DbSchema.Users.COL_Weight_waste_total])
-                    : 0;
-
-                // 4. Lưu toàn bộ thông tin đăng nhập và tồn kho vào UserSession
-                UserSession.Login(uid, dbUsername, qtyTotal, weightTotal);
+                // 4. Lưu thông tin đăng nhập và 4 chỉ số tồn kho vào UserSession 
+                // (Lưu ý: Bạn cần cập nhật lại phương thức UserSession.Login tương ứng để nhận 4 tham số này)
+                UserSession.Login(uid, dbUsername, qtyGeneral, weightGeneral, qtyWater, weightWater);
 
                 return true; // Đăng nhập thành công
             }
 
             return false; // Sai tài khoản hoặc mật khẩu
         }
-
+        private string GetMsg(string viText, string cnText)
+        {
+            bool isChinese = (LanguageManager.CurrentLanguageIndex == 1);
+            return isChinese ? cnText : viText;
+        }
         private void btn_logout_Click(object sender, EventArgs e)
         {
            
