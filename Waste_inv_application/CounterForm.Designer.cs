@@ -31,7 +31,6 @@
             this.lblTypeWaste = new System.Windows.Forms.Label();
             this.lblQuantityWaste = new System.Windows.Forms.Label();
             this.numQuantityWaste = new System.Windows.Forms.NumericUpDown();
-            this.lblWeightWaste = new System.Windows.Forms.Label();
             this.numWeightWaste = new System.Windows.Forms.NumericUpDown();
             this.lblAction = new System.Windows.Forms.Label();
             this.cboAction = new System.Windows.Forms.ComboBox();
@@ -59,6 +58,7 @@
             this.lblSelectedSamplesVal = new System.Windows.Forms.Label();
             this.lblSelectedSamplesTitle = new System.Windows.Forms.Label();
             this.cboTypeWaste = new System.Windows.Forms.ComboBox();
+            this.lblWeightWaste = new System.Windows.Forms.Label();
             this.statusStrip.SuspendLayout();
             this.pnlHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numQuantityWaste)).BeginInit();
@@ -217,16 +217,6 @@
             this.numQuantityWaste.Name = "numQuantityWaste";
             this.numQuantityWaste.Size = new System.Drawing.Size(150, 23);
             this.numQuantityWaste.TabIndex = 8;
-            // 
-            // lblWeightWaste
-            // 
-            this.lblWeightWaste.AutoSize = true;
-            this.lblWeightWaste.Location = new System.Drawing.Point(376, 155);
-            this.lblWeightWaste.Name = "lblWeightWaste";
-            this.lblWeightWaste.Size = new System.Drawing.Size(99, 15);
-            this.lblWeightWaste.TabIndex = 7;
-            this.lblWeightWaste.Tag = "Lbl_Weight";
-            this.lblWeightWaste.Text = "Trọng lượng (kg):";
             // 
             // numWeightWaste
             // 
@@ -519,6 +509,16 @@
             this.cboTypeWaste.Name = "cboTypeWaste";
             this.cboTypeWaste.Size = new System.Drawing.Size(152, 23);
             this.cboTypeWaste.TabIndex = 16;
+            // 
+            // lblWeightWaste
+            // 
+            this.lblWeightWaste.AutoSize = true;
+            this.lblWeightWaste.Location = new System.Drawing.Point(376, 155);
+            this.lblWeightWaste.Name = "lblWeightWaste";
+            this.lblWeightWaste.Size = new System.Drawing.Size(99, 15);
+            this.lblWeightWaste.TabIndex = 7;
+            this.lblWeightWaste.Tag = "Lbl_Weight";
+            this.lblWeightWaste.Text = "Trọng lượng (kg):";
             // 
             // CounterForm
             // 

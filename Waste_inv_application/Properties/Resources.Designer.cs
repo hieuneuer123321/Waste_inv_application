@@ -73,6 +73,16 @@ namespace Waste_inv_application.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap tw {
+            get {
+                object obj = ResourceManager.GetObject("tw", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap vietnam {
             get {
                 object obj = ResourceManager.GetObject("vietnam", resourceCulture);
