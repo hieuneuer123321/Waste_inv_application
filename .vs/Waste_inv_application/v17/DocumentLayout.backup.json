@@ -3,10 +3,6 @@
   "WorkspaceRootPath": "C:\\Users\\vit002\\Desktop\\Waste_inv_application\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5E5A9786-4D87-4AAA-AF76-E7FA7C81BDB5}|Waste_inv_application\\Waste_inv_application.csproj|c:\\users\\vit002\\desktop\\waste_inv_application\\waste_inv_application\\helpers\\languagemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E5A9786-4D87-4AAA-AF76-E7FA7C81BDB5}|Waste_inv_application\\Waste_inv_application.csproj|solutionrelative:waste_inv_application\\helpers\\languagemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{5E5A9786-4D87-4AAA-AF76-E7FA7C81BDB5}|Waste_inv_application\\Waste_inv_application.csproj|C:\\Users\\vit002\\Desktop\\Waste_inv_application\\waste_inv_application\\counterform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5E5A9786-4D87-4AAA-AF76-E7FA7C81BDB5}|Waste_inv_application\\Waste_inv_application.csproj|solutionrelative:waste_inv_application\\counterform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -15,12 +11,24 @@
       "RelativeMoniker": "D:0:0:{5E5A9786-4D87-4AAA-AF76-E7FA7C81BDB5}|Waste_inv_application\\Waste_inv_application.csproj|solutionrelative:waste_inv_application\\counterform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5E5A9786-4D87-4AAA-AF76-E7FA7C81BDB5}|Waste_inv_application\\Waste_inv_application.csproj|C:\\Users\\vit002\\Desktop\\Waste_inv_application\\waste_inv_application\\helpers\\databasehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5E5A9786-4D87-4AAA-AF76-E7FA7C81BDB5}|Waste_inv_application\\Waste_inv_application.csproj|solutionrelative:waste_inv_application\\helpers\\databasehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5E5A9786-4D87-4AAA-AF76-E7FA7C81BDB5}|Waste_inv_application\\Waste_inv_application.csproj|c:\\users\\vit002\\desktop\\waste_inv_application\\waste_inv_application\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5E5A9786-4D87-4AAA-AF76-E7FA7C81BDB5}|Waste_inv_application\\Waste_inv_application.csproj|solutionrelative:waste_inv_application\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5E5A9786-4D87-4AAA-AF76-E7FA7C81BDB5}|Waste_inv_application\\Waste_inv_application.csproj|C:\\Users\\vit002\\Desktop\\Waste_inv_application\\waste_inv_application\\helpers\\usersession.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5E5A9786-4D87-4AAA-AF76-E7FA7C81BDB5}|Waste_inv_application\\Waste_inv_application.csproj|solutionrelative:waste_inv_application\\helpers\\usersession.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E5A9786-4D87-4AAA-AF76-E7FA7C81BDB5}|Waste_inv_application\\Waste_inv_application.csproj|C:\\Users\\vit002\\Desktop\\Waste_inv_application\\waste_inv_application\\helpers\\databasehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E5A9786-4D87-4AAA-AF76-E7FA7C81BDB5}|Waste_inv_application\\Waste_inv_application.csproj|solutionrelative:waste_inv_application\\helpers\\databasehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E5A9786-4D87-4AAA-AF76-E7FA7C81BDB5}|Waste_inv_application\\Waste_inv_application.csproj|C:\\Users\\vit002\\Desktop\\Waste_inv_application\\waste_inv_application\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E5A9786-4D87-4AAA-AF76-E7FA7C81BDB5}|Waste_inv_application\\Waste_inv_application.csproj|solutionrelative:waste_inv_application\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5E5A9786-4D87-4AAA-AF76-E7FA7C81BDB5}|Waste_inv_application\\Waste_inv_application.csproj|C:\\Users\\vit002\\Desktop\\Waste_inv_application\\waste_inv_application\\helpers\\languagemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5E5A9786-4D87-4AAA-AF76-E7FA7C81BDB5}|Waste_inv_application\\Waste_inv_application.csproj|solutionrelative:waste_inv_application\\helpers\\languagemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,19 +46,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "DatabaseHelper.cs",
               "DocumentMoniker": "C:\\Users\\vit002\\Desktop\\Waste_inv_application\\Waste_inv_application\\Helpers\\DatabaseHelper.cs",
               "RelativeDocumentMoniker": "Waste_inv_application\\Helpers\\DatabaseHelper.cs",
               "ToolTip": "C:\\Users\\vit002\\Desktop\\Waste_inv_application\\Waste_inv_application\\Helpers\\DatabaseHelper.cs",
               "RelativeToolTip": "Waste_inv_application\\Helpers\\DatabaseHelper.cs",
-              "ViewState": "AgIAAGwAAAAAAAAAAAAhwAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAGwAAAAAAAAAAIA1wAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-20T08:19:32.429Z"
+              "WhenOpened": "2026-08-20T08:19:32.429Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\vit002\\Desktop\\Waste_inv_application\\Waste_inv_application\\Form1.cs",
+              "RelativeDocumentMoniker": "Waste_inv_application\\Form1.cs",
+              "ToolTip": "C:\\Users\\vit002\\Desktop\\Waste_inv_application\\Waste_inv_application\\Form1.cs",
+              "RelativeToolTip": "Waste_inv_application\\Form1.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAApwBkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-20T07:37:29.293Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "UserSession.cs",
               "DocumentMoniker": "C:\\Users\\vit002\\Desktop\\Waste_inv_application\\Waste_inv_application\\Helpers\\UserSession.cs",
               "RelativeDocumentMoniker": "Waste_inv_application\\Helpers\\UserSession.cs",
@@ -58,11 +80,24 @@
               "RelativeToolTip": "Waste_inv_application\\Helpers\\UserSession.cs",
               "ViewState": "AgIAABwAAAAAAAAAAAAAwC8AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-20T07:34:02.517Z"
+              "WhenOpened": "2026-08-20T07:34:02.517Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "Form1.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\vit002\\Desktop\\Waste_inv_application\\Waste_inv_application\\Form1.cs",
+              "RelativeDocumentMoniker": "Waste_inv_application\\Form1.cs",
+              "ToolTip": "C:\\Users\\vit002\\Desktop\\Waste_inv_application\\Waste_inv_application\\Form1.cs [Design]",
+              "RelativeToolTip": "Waste_inv_application\\Form1.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-20T06:58:49.38Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "CounterForm.cs [Design]",
               "DocumentMoniker": "C:\\Users\\vit002\\Desktop\\Waste_inv_application\\Waste_inv_application\\CounterForm.cs",
               "RelativeDocumentMoniker": "Waste_inv_application\\CounterForm.cs",
@@ -74,26 +109,25 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 6,
               "Title": "LanguageManager.cs",
               "DocumentMoniker": "C:\\Users\\vit002\\Desktop\\Waste_inv_application\\Waste_inv_application\\Helpers\\LanguageManager.cs",
               "RelativeDocumentMoniker": "Waste_inv_application\\Helpers\\LanguageManager.cs",
               "ToolTip": "C:\\Users\\vit002\\Desktop\\Waste_inv_application\\Waste_inv_application\\Helpers\\LanguageManager.cs",
               "RelativeToolTip": "Waste_inv_application\\Helpers\\LanguageManager.cs",
-              "ViewState": "AgIAANkAAAAAAAAAAAApwNYAAAA5AAAAAAAAAA==",
+              "ViewState": "AgIAADkAAAAAAAAAAAAowBsAAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-20T02:25:22.56Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-20T02:25:22.56Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "CounterForm.cs",
               "DocumentMoniker": "C:\\Users\\vit002\\Desktop\\Waste_inv_application\\Waste_inv_application\\CounterForm.cs",
               "RelativeDocumentMoniker": "Waste_inv_application\\CounterForm.cs",
               "ToolTip": "C:\\Users\\vit002\\Desktop\\Waste_inv_application\\Waste_inv_application\\CounterForm.cs",
               "RelativeToolTip": "Waste_inv_application\\CounterForm.cs",
-              "ViewState": "AgIAAOwAAAAAAAAAAAApwAkBAAAfAAAAAAAAAA==",
+              "ViewState": "AgIAAJIAAAAAAAAAAAApwJoAAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-08-19T06:10:20.819Z",
               "EditorCaption": ""

@@ -140,14 +140,12 @@ namespace Waste_inv_application
         {
             if (string.IsNullOrWhiteSpace(txtDepartment.Text))
             {
-                ShowWarning("Vui lòng nhập Phòng ban!");
-                txtDepartment.Focus();
-                return;
+                ShowWarning("Vui lòng nhập đầy đủ thông tin!", "請完整輸入所有 資訊！");
             }
 
             if (numQuantityWaste.Value <= 0 || numWeightWaste.Value <= 0)
             {
-                ShowWarning("Số lượng và khối lượng phải lớn hơn 0!");
+                ShowWarning("Số lượng và khối lượng phải lớn hơn 0!", "數量和重量必須大於 0！");
                 return;
             }
 
@@ -164,7 +162,10 @@ namespace Waste_inv_application
 
                 if (qtyCurrent > stock.qty || weightCurrent > stock.weight)
                 {
-                    ShowWarning($"Không đủ tồn kho cho: {typeName}\nTồn hiện tại: {stock.qty} / {stock.weight}");
+                    ShowWarning(
+                         $"Không đủ tồn kho cho: {typeName}\nTồn hiện tại: {stock.qty} / {stock.weight}",
+                         $"庫存不足: {typeName}\n當前庫存: {stock.qty} / {stock.weight}"
+                     );
                     return;
                 }
             }
@@ -189,8 +190,9 @@ namespace Waste_inv_application
                             {DbSchema.Wastes.COL_Department}, {DbSchema.Wastes.COL_Type_waste}, 
                             {DbSchema.Wastes.COL_Quantity_waste}, {DbSchema.Wastes.COL_Weight_waste}, 
                             {DbSchema.Wastes.COL_Action}, {DbSchema.Wastes.COL_Created_by}, 
-                            {DbSchema.Wastes.COL_Date_report}, {DbSchema.Wastes.COL_Is_cancel}) 
-                            VALUES (:d, :t, :q, :w, :a, :u, :r, 'N')";
+                            {DbSchema.Wastes.COL_Date_report}, {DbSchema.Wastes.COL_Is_cancel},
+                            {DbSchema.Wastes.COL_Creation_date}) 
+                            VALUES (:d, :t, :q, :w, :a, :u, :r, 'N', :c)";
 
                     using (var cmd = new OracleCommand(sql, conn) { Transaction = trans, BindByName = true })
                     {
@@ -201,6 +203,7 @@ namespace Waste_inv_application
                         cmd.Parameters.Add("a", OracleDbType.Int32).Value = isOutput ? 0 : 1;
                         cmd.Parameters.Add("u", OracleDbType.Varchar2).Value = user;
                         cmd.Parameters.Add("r", OracleDbType.Date).Value = dtpDateReport.Value.Date;
+                        cmd.Parameters.Add("c", OracleDbType.Date).Value = DateTime.Now; // Thêm ngày giờ hệ thống hiện tại
                         cmd.ExecuteNonQuery();
                     }
                     UpdateUserTotals(conn, trans, dept);
@@ -444,8 +447,11 @@ namespace Waste_inv_application
 
         private void btnLogout_Click_1(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Bạn có muốn đăng xuất khỏi hệ thống?", "Xác nhận đăng xuất",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show(
+                 GetMsg("Bạn có muốn đăng xuất khỏi hệ thống?", "您確定要登出系統嗎？"),
+                 GetMsg("Xác nhận đăng xuất", "確認登出"),
+                 MessageBoxButtons.YesNo,
+                 MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 UserSession.CurrentUsername = null;
                 this.DialogResult = DialogResult.Retry;
@@ -482,16 +488,20 @@ namespace Waste_inv_application
             numWeightWaste.Value = 0;
         }
 
-        private void ShowWarning(string message)
+        private void ShowWarning(string message, string chineseMessage = null)
         {
+            // Nếu có truyền chuỗi tiếng Trung riêng thì dùng GetMsg(message, chineseMessage), 
+            // ngược lại nếu chỉ truyền 1 tham số thì dùng mặc định GetMsg cho message
+            string displayMessage = chineseMessage != null ? GetMsg(message, chineseMessage) : message;
+
             MessageBox.Show(
-                 message,
-                 GetMsg("Thông báo", "通知"),
-                 MessageBoxButtons.OK,
-                 MessageBoxIcon.Warning
-             );
+                displayMessage,
+                GetMsg("Thông báo", "通知"),
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Warning
+            );
         }
 
-#endregion
+        #endregion
     }
 }

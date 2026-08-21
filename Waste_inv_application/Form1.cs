@@ -34,8 +34,12 @@ namespace Waste_inv_application
             // 1. Kiểm tra đầu vào
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
-                MessageBox.Show("Vui lòng nhập đầy đủ Tên đăng nhập và Mật khẩu!",
-                                "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(
+                                        GetMsg("Vui lòng nhập đầy đủ Tên đăng nhập và Mật khẩu!", "請完整輸入帳號和密碼！"),
+                                        GetMsg("Thông báo", "通知"),
+                                        MessageBoxButtons.OK,
+                                        MessageBoxIcon.Warning
+                                    );
                 txt_username.Focus();
                 return;
             }
@@ -65,8 +69,12 @@ namespace Waste_inv_application
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Không thể kết nối CSDL Oracle:\n" + ex.Message,
-                                "Lỗi CSDL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(
+                    GetMsg("Không thể kết nối CSDL Oracle:\n", "無法連線至 Oracle 資料庫:\n") + ex.Message,
+                    GetMsg("Lỗi CSDL", "資料庫錯誤"),
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
             }        
             
         }
