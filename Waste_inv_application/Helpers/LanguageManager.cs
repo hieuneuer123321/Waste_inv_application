@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 using Waste_inv_application.Properties;
+using Waste_inv_application.Properties;
 public static class LanguageManager
 {
     // 0: Tiếng Việt, 1: Tiếng Trung
@@ -18,6 +19,7 @@ public static class LanguageManager
         { "Lbl_Lang", new string[] { "Ngôn ngữ:", "語言:" } },
         { "Btn_Login", new string[] { "Đăng nhập", "登入" } },
         { "Btn_Logout", new string[] { "Đăng xuất", "登出" } },
+        { "Btn_Exit", new string[] { "Thoát", "退出" } },
 
         // --- Form Chính (CounterForm) ---
         { "Form_Counter", new string[] { "Hệ thống Quản lý Phế liệu", "廢料管理程式" } },
@@ -51,6 +53,8 @@ public static class LanguageManager
         { "Lbl_GeneralWeight", new string[] { "Tổng khối lượng Rác thải (Kg):", "固態-總重量 (Kg):" } },
         { "Lbl_WaterQty", new string[] { "Tổng số lượng nước thải (thùng):", "液態-總數量 (桶):" } },
         { "Lbl_WaterWeight", new string[] { "Tổng khối lượng nước thải (Kg):", "液態-總重量 (Kg):" } },
+        { "Lbl_Qty_Total", new string[] { "Tổng số lượng (thùng):", "總數量 (桶):" } },
+        { "Lbl_Weight_Total", new string[] { "Tổng khối lượng (Kg):", "總重量 (Kg):" } },
     };
 
     public static string GetText(string key)

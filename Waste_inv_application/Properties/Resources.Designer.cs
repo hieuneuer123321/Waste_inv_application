@@ -89,5 +89,15 @@ namespace Waste_inv_application.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap warehouse_supply_cargo_distribution_logistic_icon_187269__1_ {
+            get {
+                object obj = ResourceManager.GetObject("warehouse_supply_cargo_distribution_logistic_icon_187269 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

@@ -59,6 +59,14 @@
             this.lblSelectedSamplesTitle = new System.Windows.Forms.Label();
             this.cboTypeWaste = new System.Windows.Forms.ComboBox();
             this.lblWeightWaste = new System.Windows.Forms.Label();
+            this.pnlWasteQty = new System.Windows.Forms.Panel();
+            this.pnlHeaderQty = new System.Windows.Forms.Panel();
+            this.lblTitleQty = new System.Windows.Forms.Label();
+            this.lbWeightTotal = new System.Windows.Forms.Label();
+            this.pnlWasteResult = new System.Windows.Forms.Panel();
+            this.pnlHeaderRes = new System.Windows.Forms.Panel();
+            this.lblTitleRes = new System.Windows.Forms.Label();
+            this.lbQtyTotal = new System.Windows.Forms.Label();
             this.statusStrip.SuspendLayout();
             this.pnlHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numQuantityWaste)).BeginInit();
@@ -66,13 +74,17 @@
             this.pnlActions.SuspendLayout();
             this.grpResults.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResults)).BeginInit();
+            this.pnlWasteQty.SuspendLayout();
+            this.pnlHeaderQty.SuspendLayout();
+            this.pnlWasteResult.SuspendLayout();
+            this.pnlHeaderRes.SuspendLayout();
             this.SuspendLayout();
             // 
             // statusStrip
             // 
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lblStatus});
-            this.statusStrip.Location = new System.Drawing.Point(0, 646);
+            this.statusStrip.Location = new System.Drawing.Point(0, 731);
             this.statusStrip.Name = "statusStrip";
             this.statusStrip.Size = new System.Drawing.Size(670, 22);
             this.statusStrip.TabIndex = 10;
@@ -315,6 +327,8 @@
             // 
             // grpResults
             // 
+            this.grpResults.Controls.Add(this.pnlWasteQty);
+            this.grpResults.Controls.Add(this.pnlWasteResult);
             this.grpResults.Controls.Add(this.lblWaterWeight);
             this.grpResults.Controls.Add(this.label2);
             this.grpResults.Controls.Add(this.lblWaterQty);
@@ -328,7 +342,7 @@
             this.grpResults.Controls.Add(this.lblSelectedSamplesTitle);
             this.grpResults.Location = new System.Drawing.Point(20, 236);
             this.grpResults.Name = "grpResults";
-            this.grpResults.Size = new System.Drawing.Size(636, 395);
+            this.grpResults.Size = new System.Drawing.Size(636, 492);
             this.grpResults.TabIndex = 1;
             this.grpResults.TabStop = false;
             this.grpResults.Tag = "Grp_ReportList";
@@ -483,7 +497,7 @@
             // 
             this.lblSelectedSamplesVal.AutoSize = true;
             this.lblSelectedSamplesVal.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.lblSelectedSamplesVal.Location = new System.Drawing.Point(530, 371);
+            this.lblSelectedSamplesVal.Location = new System.Drawing.Point(212, 369);
             this.lblSelectedSamplesVal.Name = "lblSelectedSamplesVal";
             this.lblSelectedSamplesVal.Size = new System.Drawing.Size(17, 19);
             this.lblSelectedSamplesVal.TabIndex = 6;
@@ -492,7 +506,7 @@
             // lblSelectedSamplesTitle
             // 
             this.lblSelectedSamplesTitle.AutoSize = true;
-            this.lblSelectedSamplesTitle.Location = new System.Drawing.Point(345, 373);
+            this.lblSelectedSamplesTitle.Location = new System.Drawing.Point(18, 371);
             this.lblSelectedSamplesTitle.Name = "lblSelectedSamplesTitle";
             this.lblSelectedSamplesTitle.Size = new System.Drawing.Size(84, 15);
             this.lblSelectedSamplesTitle.TabIndex = 7;
@@ -520,9 +534,96 @@
             this.lblWeightWaste.Tag = "Lbl_Weight";
             this.lblWeightWaste.Text = "Trọng lượng (kg):";
             // 
+            // pnlWasteQty
+            // 
+            this.pnlWasteQty.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(115)))), ((int)(((byte)(180)))));
+            this.pnlWasteQty.Controls.Add(this.pnlHeaderQty);
+            this.pnlWasteQty.Controls.Add(this.lbWeightTotal);
+            this.pnlWasteQty.Location = new System.Drawing.Point(374, 399);
+            this.pnlWasteQty.Name = "pnlWasteQty";
+            this.pnlWasteQty.Size = new System.Drawing.Size(256, 79);
+            this.pnlWasteQty.TabIndex = 13;
+            // 
+            // pnlHeaderQty
+            // 
+            this.pnlHeaderQty.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(93)))), ((int)(((byte)(148)))));
+            this.pnlHeaderQty.Controls.Add(this.lblTitleQty);
+            this.pnlHeaderQty.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlHeaderQty.Location = new System.Drawing.Point(0, 0);
+            this.pnlHeaderQty.Name = "pnlHeaderQty";
+            this.pnlHeaderQty.Size = new System.Drawing.Size(256, 35);
+            this.pnlHeaderQty.TabIndex = 0;
+            // 
+            // lblTitleQty
+            // 
+            this.lblTitleQty.AutoSize = true;
+            this.lblTitleQty.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.lblTitleQty.ForeColor = System.Drawing.Color.White;
+            this.lblTitleQty.Location = new System.Drawing.Point(10, 8);
+            this.lblTitleQty.Name = "lblTitleQty";
+            this.lblTitleQty.Size = new System.Drawing.Size(151, 19);
+            this.lblTitleQty.TabIndex = 0;
+            this.lblTitleQty.Tag = "Lbl_Weight_Total";
+            this.lblTitleQty.Text = "Tổng khối lượng (Kg)";
+            // 
+            // lbWeightTotal
+            // 
+            this.lbWeightTotal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(115)))), ((int)(((byte)(180)))));
+            this.lbWeightTotal.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbWeightTotal.ForeColor = System.Drawing.Color.White;
+            this.lbWeightTotal.Location = new System.Drawing.Point(3, 36);
+            this.lbWeightTotal.Name = "lbWeightTotal";
+            this.lbWeightTotal.Size = new System.Drawing.Size(250, 43);
+            this.lbWeightTotal.TabIndex = 1;
+            this.lbWeightTotal.Text = "0";
+            this.lbWeightTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pnlWasteResult
+            // 
+            this.pnlWasteResult.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.pnlWasteResult.Controls.Add(this.pnlHeaderRes);
+            this.pnlWasteResult.Controls.Add(this.lbQtyTotal);
+            this.pnlWasteResult.Location = new System.Drawing.Point(200, 399);
+            this.pnlWasteResult.Name = "pnlWasteResult";
+            this.pnlWasteResult.Size = new System.Drawing.Size(168, 79);
+            this.pnlWasteResult.TabIndex = 14;
+            // 
+            // pnlHeaderRes
+            // 
+            this.pnlHeaderRes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(135)))), ((int)(((byte)(28)))));
+            this.pnlHeaderRes.Controls.Add(this.lblTitleRes);
+            this.pnlHeaderRes.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlHeaderRes.Location = new System.Drawing.Point(0, 0);
+            this.pnlHeaderRes.Name = "pnlHeaderRes";
+            this.pnlHeaderRes.Size = new System.Drawing.Size(168, 35);
+            this.pnlHeaderRes.TabIndex = 0;
+            // 
+            // lblTitleRes
+            // 
+            this.lblTitleRes.AutoSize = true;
+            this.lblTitleRes.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.lblTitleRes.ForeColor = System.Drawing.Color.White;
+            this.lblTitleRes.Location = new System.Drawing.Point(10, 8);
+            this.lblTitleRes.Name = "lblTitleRes";
+            this.lblTitleRes.Size = new System.Drawing.Size(157, 19);
+            this.lblTitleRes.TabIndex = 0;
+            this.lblTitleRes.Tag = "Lbl_Qty_Total";
+            this.lblTitleRes.Text = "Tổng số lượng (thùng)";
+            // 
+            // lbQtyTotal
+            // 
+            this.lbQtyTotal.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbQtyTotal.ForeColor = System.Drawing.Color.White;
+            this.lbQtyTotal.Location = new System.Drawing.Point(0, 38);
+            this.lbQtyTotal.Name = "lbQtyTotal";
+            this.lbQtyTotal.Size = new System.Drawing.Size(165, 41);
+            this.lbQtyTotal.TabIndex = 1;
+            this.lbQtyTotal.Text = "0";
+            this.lbQtyTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // CounterForm
             // 
-            this.ClientSize = new System.Drawing.Size(670, 668);
+            this.ClientSize = new System.Drawing.Size(670, 753);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.cboTypeWaste);
             this.Controls.Add(this.grpResults);
@@ -557,6 +658,12 @@
             this.grpResults.ResumeLayout(false);
             this.grpResults.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResults)).EndInit();
+            this.pnlWasteQty.ResumeLayout(false);
+            this.pnlHeaderQty.ResumeLayout(false);
+            this.pnlHeaderQty.PerformLayout();
+            this.pnlWasteResult.ResumeLayout(false);
+            this.pnlHeaderRes.ResumeLayout(false);
+            this.pnlHeaderRes.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -609,5 +716,13 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblWaterQty;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Panel pnlWasteQty;
+        private System.Windows.Forms.Panel pnlHeaderQty;
+        private System.Windows.Forms.Label lblTitleQty;
+        private System.Windows.Forms.Label lbWeightTotal;
+        private System.Windows.Forms.Panel pnlWasteResult;
+        private System.Windows.Forms.Panel pnlHeaderRes;
+        private System.Windows.Forms.Label lblTitleRes;
+        private System.Windows.Forms.Label lbQtyTotal;
     }
 }

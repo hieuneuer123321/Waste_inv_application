@@ -83,7 +83,7 @@
             this.btn_logout.Name = "btn_logout";
             this.btn_logout.Size = new System.Drawing.Size(128, 34);
             this.btn_logout.TabIndex = 1;
-            this.btn_logout.Tag = "Btn_Logout";
+            this.btn_logout.Tag = "Btn_Exit";
             this.btn_logout.Text = "Thoát";
             this.btn_logout.UseVisualStyleBackColor = true;
             this.btn_logout.Click += new System.EventHandler(this.btn_logout_Click);

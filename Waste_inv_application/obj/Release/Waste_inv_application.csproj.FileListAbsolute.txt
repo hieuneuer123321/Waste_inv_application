@@ -1,0 +1,54 @@
+C:\Users\vit002\Desktop\Waste_inv_application\Waste_inv_application\obj\Release\Waste_inv_application.csproj.AssemblyReference.cache
+C:\Users\vit002\Desktop\Waste_inv_application\Waste_inv_application\obj\Release\Waste_inv_application.CounterForm.resources
+C:\Users\vit002\Desktop\Waste_inv_application\Waste_inv_application\obj\Release\Waste_inv_application.Form1.resources
+C:\Users\vit002\Desktop\Waste_inv_application\Waste_inv_application\obj\Release\Waste_inv_application.MainForm.resources
+C:\Users\vit002\Desktop\Waste_inv_application\Waste_inv_application\obj\Release\Waste_inv_application.csproj.GenerateResource.cache
+C:\Users\vit002\Desktop\Waste_inv_application\Waste_inv_application\obj\Release\Waste_inv_application.Properties.Resources.resources
+C:\Users\vit002\Desktop\Waste_inv_application\Waste_inv_application\obj\Release\Waste_inv_application.csproj.CoreCompileInputs.cache
+C:\Users\vit002\Desktop\Waste_inv_application\Waste_inv_application\bin\Release\Waste_inv_application.exe.config
+C:\Users\vit002\Desktop\Waste_inv_application\Waste_inv_application\bin\Release\Waste_inv_application.exe
+C:\Users\vit002\Desktop\Waste_inv_application\Waste_inv_application\bin\Release\Waste_inv_application.pdb
+C:\Users\vit002\Desktop\Waste_inv_application\Waste_inv_application\bin\Release\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\vit002\Desktop\Waste_inv_application\Waste_inv_application\bin\Release\System.Buffers.xml
+C:\Users\vit002\Desktop\Waste_inv_application\Waste_inv_application\bin\Release\System.Collections.Immutable.xml
+C:\Users\vit002\Desktop\Waste_inv_application\Waste_inv_application\bin\Release\System.Diagnostics.DiagnosticSource.xml
+C:\Users\vit002\Desktop\Waste_inv_application\Waste_inv_application\bin\Release\System.Formats.Asn1.xml
+C:\Users\vit002\Desktop\Waste_inv_application\Waste_inv_application\bin\Release\System.Memory.xml
+C:\Users\vit002\Desktop\Waste_inv_application\Waste_inv_application\bin\Release\System.Numerics.Vectors.xml
+C:\Users\vit002\Desktop\Waste_inv_application\Waste_inv_application\bin\Release\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\vit002\Desktop\Waste_inv_application\Waste_inv_application\bin\Release\System.Text.Encodings.Web.xml
+C:\Users\vit002\Desktop\Waste_inv_application\Waste_inv_application\bin\Release\System.Text.Json.xml
+C:\Users\vit002\Desktop\Waste_inv_application\Waste_inv_application\bin\Release\System.Threading.Tasks.Extensions.xml
+C:\Users\vit002\Desktop\Waste_inv_application\Waste_inv_application\bin\Release\System.ValueTuple.xml
+C:\Users\vit002\Desktop\Waste_inv_application\Waste_inv_application\obj\Release\Waste_in.29602787.Up2Date
+C:\Users\vit002\Desktop\Waste_inv_application\Waste_inv_application\obj\Release\Waste_inv_application.exe
+C:\Users\vit002\Desktop\Waste_inv_application\Waste_inv_application\obj\Release\Waste_inv_application.pdb
+C:\Users\vit002\Desktop\Waste_inv_application\Waste_inv_application\obj\Release\Waste_inv_application.csproj.Fody.CopyLocal.cache
+C:\Users\vit002\Desktop\Waste_inv_application\Waste_inv_application\obj\Release\Waste_inv_application.csproj.Fody.RuntimeCopyLocal.cache
+C:\Users\vit002\Desktop\New folder\Waste_inv_application\Waste_inv_application\bin\Release\Waste_inv_application.exe.config
+C:\Users\vit002\Desktop\New folder\Waste_inv_application\Waste_inv_application\bin\Release\Waste_inv_application.exe
+C:\Users\vit002\Desktop\New folder\Waste_inv_application\Waste_inv_application\bin\Release\Waste_inv_application.pdb
+C:\Users\vit002\Desktop\New folder\Waste_inv_application\Waste_inv_application\bin\Release\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\vit002\Desktop\New folder\Waste_inv_application\Waste_inv_application\bin\Release\System.Buffers.xml
+C:\Users\vit002\Desktop\New folder\Waste_inv_application\Waste_inv_application\bin\Release\System.Collections.Immutable.xml
+C:\Users\vit002\Desktop\New folder\Waste_inv_application\Waste_inv_application\bin\Release\System.Diagnostics.DiagnosticSource.xml
+C:\Users\vit002\Desktop\New folder\Waste_inv_application\Waste_inv_application\bin\Release\System.Formats.Asn1.xml
+C:\Users\vit002\Desktop\New folder\Waste_inv_application\Waste_inv_application\bin\Release\System.Memory.xml
+C:\Users\vit002\Desktop\New folder\Waste_inv_application\Waste_inv_application\bin\Release\System.Numerics.Vectors.xml
+C:\Users\vit002\Desktop\New folder\Waste_inv_application\Waste_inv_application\bin\Release\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\vit002\Desktop\New folder\Waste_inv_application\Waste_inv_application\bin\Release\System.Text.Encodings.Web.xml
+C:\Users\vit002\Desktop\New folder\Waste_inv_application\Waste_inv_application\bin\Release\System.Text.Json.xml
+C:\Users\vit002\Desktop\New folder\Waste_inv_application\Waste_inv_application\bin\Release\System.Threading.Tasks.Extensions.xml
+C:\Users\vit002\Desktop\New folder\Waste_inv_application\Waste_inv_application\bin\Release\System.ValueTuple.xml
+C:\Users\vit002\Desktop\New folder\Waste_inv_application\Waste_inv_application\obj\Release\Waste_inv_application.csproj.AssemblyReference.cache
+C:\Users\vit002\Desktop\New folder\Waste_inv_application\Waste_inv_application\obj\Release\Waste_inv_application.CounterForm.resources
+C:\Users\vit002\Desktop\New folder\Waste_inv_application\Waste_inv_application\obj\Release\Waste_inv_application.Form1.resources
+C:\Users\vit002\Desktop\New folder\Waste_inv_application\Waste_inv_application\obj\Release\Waste_inv_application.MainForm.resources
+C:\Users\vit002\Desktop\New folder\Waste_inv_application\Waste_inv_application\obj\Release\Waste_inv_application.Properties.Resources.resources
+C:\Users\vit002\Desktop\New folder\Waste_inv_application\Waste_inv_application\obj\Release\Waste_inv_application.csproj.GenerateResource.cache
+C:\Users\vit002\Desktop\New folder\Waste_inv_application\Waste_inv_application\obj\Release\Waste_inv_application.csproj.CoreCompileInputs.cache
+C:\Users\vit002\Desktop\New folder\Waste_inv_application\Waste_inv_application\obj\Release\Waste_inv_application.csproj.Fody.CopyLocal.cache
+C:\Users\vit002\Desktop\New folder\Waste_inv_application\Waste_inv_application\obj\Release\Waste_inv_application.csproj.Fody.RuntimeCopyLocal.cache
+C:\Users\vit002\Desktop\New folder\Waste_inv_application\Waste_inv_application\obj\Release\Waste_in.29602787.Up2Date
+C:\Users\vit002\Desktop\New folder\Waste_inv_application\Waste_inv_application\obj\Release\Waste_inv_application.exe
+C:\Users\vit002\Desktop\New folder\Waste_inv_application\Waste_inv_application\obj\Release\Waste_inv_application.pdb

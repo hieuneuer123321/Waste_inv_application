@@ -31,12 +31,12 @@ namespace Waste_inv_application
             cboAction.SelectedIndex = 0;
             cboTypeWaste.SelectedIndex = 0;
         }
-
+       
         private async void CounterForm_Shown(object sender, EventArgs e)
         {
             await RefreshDataAsync("Đang kết nối và tải dữ liệu...");
         }
-
+       
         private void btnSave_Click(object sender, EventArgs e) => SaveDataToDatabase();
         private void btnClear_Click(object sender, EventArgs e) => ClearInputs();
         private async void btnReload_Click(object sender, EventArgs e) => await RefreshDataAsync("Đang làm mới dữ liệu...");
@@ -360,7 +360,8 @@ namespace Waste_inv_application
                 if (type == "WATER") { totalQtyWater = q; totalWeightWater = w; }
                 else { totalQtyGeneral = q; totalWeightGeneral = w; }
             }
-
+            // --- GỌI HÀM CẬP NHẬT GIAO DIỆN CARD ---
+            UpdateSummaryCards(totalQtyGeneral, totalWeightGeneral, totalQtyWater, totalWeightWater);
             if (lblGeneralQty != null) lblGeneralQty.Text = totalQtyGeneral.ToString("N0");
             if (lblGeneralWeight != null) lblGeneralWeight.Text = totalWeightGeneral.ToString("N0");
             if (lblWaterQty != null) lblWaterQty.Text = totalQtyWater.ToString("N0");
@@ -371,7 +372,24 @@ namespace Waste_inv_application
         }
 
         #endregion
+        private void UpdateSummaryCards(long totalQtyGeneral, long totalWeightGeneral, long totalQtyWater, long totalWeightWater)
+        {
+            // Tính tổng cộng gộp
+            long grandTotalQty = totalQtyGeneral + totalQtyWater;
+            long grandTotalWeight = totalWeightGeneral + totalWeightWater;
+            // 2. Cập nhật card hiển thị TỔNG CỘNG CHUNG (Grand Total)
+            // Giả sử bạn có 2 label chuyên biệt để show tổng này: lblGrandTotalQty và lblGrandTotalWeight
+            if (lbQtyTotal != null)
+            {
+                lbQtyTotal.Text = grandTotalQty.ToString("N0");
+            }
 
+            if (lbWeightTotal != null)
+            {
+                // Thêm đơn vị tính nếu cần
+                lbWeightTotal.Text = grandTotalWeight.ToString("N0");
+            }
+        }
         #region Event Handlers
 
         private void dgvResults_CellContentClick(object sender, DataGridViewCellEventArgs e)
