@@ -192,8 +192,6 @@ namespace Waste_inv_application
 
             //e.DrawFocusRectangle();
         }
-
-      
     }
     
 }

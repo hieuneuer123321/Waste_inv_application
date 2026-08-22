@@ -1,19 +1,6 @@
 C:\Users\vit002\Desktop\Waste_inv_application\Waste_inv_application\bin\Debug\Waste_inv_application.exe.config
 C:\Users\vit002\Desktop\Waste_inv_application\Waste_inv_application\bin\Debug\Waste_inv_application.exe
 C:\Users\vit002\Desktop\Waste_inv_application\Waste_inv_application\bin\Debug\Waste_inv_application.pdb
-C:\Users\vit002\Desktop\Waste_inv_application\Waste_inv_application\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
-C:\Users\vit002\Desktop\Waste_inv_application\Waste_inv_application\bin\Debug\Oracle.ManagedDataAccess.dll
-C:\Users\vit002\Desktop\Waste_inv_application\Waste_inv_application\bin\Debug\System.Buffers.dll
-C:\Users\vit002\Desktop\Waste_inv_application\Waste_inv_application\bin\Debug\System.Collections.Immutable.dll
-C:\Users\vit002\Desktop\Waste_inv_application\Waste_inv_application\bin\Debug\System.Diagnostics.DiagnosticSource.dll
-C:\Users\vit002\Desktop\Waste_inv_application\Waste_inv_application\bin\Debug\System.Formats.Asn1.dll
-C:\Users\vit002\Desktop\Waste_inv_application\Waste_inv_application\bin\Debug\System.Memory.dll
-C:\Users\vit002\Desktop\Waste_inv_application\Waste_inv_application\bin\Debug\System.Numerics.Vectors.dll
-C:\Users\vit002\Desktop\Waste_inv_application\Waste_inv_application\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
-C:\Users\vit002\Desktop\Waste_inv_application\Waste_inv_application\bin\Debug\System.Text.Encodings.Web.dll
-C:\Users\vit002\Desktop\Waste_inv_application\Waste_inv_application\bin\Debug\System.Text.Json.dll
-C:\Users\vit002\Desktop\Waste_inv_application\Waste_inv_application\bin\Debug\System.Threading.Tasks.Extensions.dll
-C:\Users\vit002\Desktop\Waste_inv_application\Waste_inv_application\bin\Debug\System.ValueTuple.dll
 C:\Users\vit002\Desktop\Waste_inv_application\Waste_inv_application\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
 C:\Users\vit002\Desktop\Waste_inv_application\Waste_inv_application\bin\Debug\System.Buffers.xml
 C:\Users\vit002\Desktop\Waste_inv_application\Waste_inv_application\bin\Debug\System.Collections.Immutable.xml
@@ -77,3 +64,19 @@ C:\Users\vit002\Desktop\New folder\Waste_inv_application\Waste_inv_application\b
 C:\Users\vit002\Desktop\New folder\Waste_inv_application\Waste_inv_application\bin\Debug\System.ValueTuple.dll
 C:\Users\vit002\Desktop\New folder\Waste_inv_application\Waste_inv_application\bin\Debug\Costura.pdb
 C:\Users\vit002\Desktop\New folder\Waste_inv_application\Waste_inv_application\bin\Debug\Costura.xml
+C:\Users\vit002\Desktop\Waste_inv_application\Waste_inv_application\bin\Debug\Costura.dll
+C:\Users\vit002\Desktop\Waste_inv_application\Waste_inv_application\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\vit002\Desktop\Waste_inv_application\Waste_inv_application\bin\Debug\Oracle.ManagedDataAccess.dll
+C:\Users\vit002\Desktop\Waste_inv_application\Waste_inv_application\bin\Debug\System.Buffers.dll
+C:\Users\vit002\Desktop\Waste_inv_application\Waste_inv_application\bin\Debug\System.Collections.Immutable.dll
+C:\Users\vit002\Desktop\Waste_inv_application\Waste_inv_application\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\Users\vit002\Desktop\Waste_inv_application\Waste_inv_application\bin\Debug\System.Formats.Asn1.dll
+C:\Users\vit002\Desktop\Waste_inv_application\Waste_inv_application\bin\Debug\System.Memory.dll
+C:\Users\vit002\Desktop\Waste_inv_application\Waste_inv_application\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\vit002\Desktop\Waste_inv_application\Waste_inv_application\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\vit002\Desktop\Waste_inv_application\Waste_inv_application\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\vit002\Desktop\Waste_inv_application\Waste_inv_application\bin\Debug\System.Text.Json.dll
+C:\Users\vit002\Desktop\Waste_inv_application\Waste_inv_application\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\vit002\Desktop\Waste_inv_application\Waste_inv_application\bin\Debug\System.ValueTuple.dll
+C:\Users\vit002\Desktop\Waste_inv_application\Waste_inv_application\bin\Debug\Costura.pdb
+C:\Users\vit002\Desktop\Waste_inv_application\Waste_inv_application\bin\Debug\Costura.xml

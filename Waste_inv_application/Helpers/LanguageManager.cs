@@ -42,7 +42,7 @@ public static class LanguageManager
         { "Lbl_StatusReady", new string[] { "Sẵn sàng", "準備" } },
 
         // --- DataGridView Headers (Map theo Name của cột) ---
-        { "Col_Cancel", new string[] { "", "" } },
+        { "Col_Cancel", new string[] { "Hủy", "作廢" } },
         { "Col_Dept", new string[] { "Phòng ban", "部門" } },
         { "Col_Date", new string[] { "Ngày BC", "輸入日期" } },
         { "Col_Type", new string[] { "Loại rác", "垃圾類別" } },
